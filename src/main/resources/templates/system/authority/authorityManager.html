@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <title>权限管理</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+
+    <link rel="shortcut icon" href="favicon.ico"/> 
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" />
+	<link th:href="@{/css/font-awesome.min.css}" rel="stylesheet" />
+	
+	<link th:href="@{/css/plugins/treeview/patternfly-bootstrap-treeview.css}" rel="stylesheet"/>
+	<link th:href="@{/css/plugins/sweetalert/sweetalert.css}" rel="stylesheet" />
+
+    <link th:href="@{/css/animate.min.css}" rel="stylesheet"/>
+    <link th:href="@{/css/style.min.css?v=4.0.0}" rel="stylesheet"/>
+    
+</head>
+
+<body class="gray-bg">
+    <div class="row wrapper wrapper-content animated fadeInRight">
+        
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>系统管理 >> 权限管理</h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="col-sm-5">
+                    	<h3>菜单树：</h3>
+                        <div id="menuTree" class="test"></div>
+                    </div>
+                    <div class="col-sm-7">
+                        <h3>权限编辑：</h3>
+                        <div>
+                        	<p>勾选子节点的同时必须勾选父节点才生效</p>
+                        </div>
+                        
+                        <div class="col-md-12">
+						    
+							<div class="panel-body form-group" style="margin-bottom: 0px;">
+								<label class="col-sm-2 control-label" style="text-align: right; margin-top: 5px;width: auto; ">角色：</label>
+								<div class="col-sm-10">
+									<select class="form-control" name="roleId" id="roleId">
+						                <option value="1" selected="selected">角色1</option>
+						                <option value="2">角色2</option>
+						                <option value="3">角色3</option>
+						            </select>
+								</div>
+							</div>
+                        
+                        	<button id="saveBtn" type="button" class="btn btn-primary" style="margin-left: 200px;">
+								 保存
+							</button>
+			            </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
+    
+    <script th:src="@{/js/jquery.min.js}"></script>
+	<script th:src="@{/js/bootstrap.min.js}"></script>
+	<script th:src="@{/js/content.min.js}"></script>
+	
+	<script th:src="@{/js/plugins/sweetalert/sweetalert.min.js}"></script>
+	<script th:src="@{/js/plugins/treeview/patternfly-bootstrap-treeview.js}"></script>
+    <script th:src="@{/js/system/authority/authorityManager.js}"></script>
+</body>
+
+</html>

@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tortoise.quake.dao.RoleMapper">
+
+	<resultMap id="BaseResultMap" type="com.tortoise.quake.model.Role">
+		<id column="id" property="id" jdbcType="BIGINT" />
+		<result column="role_name" property="roleName" jdbcType="VARCHAR" />
+		<result column="role_code" property="roleCode" jdbcType="VARCHAR" />
+		<result column="description" property="description" jdbcType="VARCHAR" />
+		<result column="create_id" property="createId" jdbcType="VARCHAR" />
+		<result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+		<result column="update_id" property="updateId" jdbcType="VARCHAR" />
+		<result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+		<result column="is_deleted" property="isDeleted" jdbcType="TINYINT" />
+	</resultMap>
+
+	<sql id="Base_Column_List">
+		id,role_name,role_code,description,create_id,create_time,update_id,update_time,is_deleted
+	</sql>
+
+	<sql id="Alias_Column_List">
+		t.id,t.role_name,t.role_code,t.description,t.create_id,t.create_time,t.update_id,t.update_time,t.is_deleted
+	</sql>
+
+	<sql id="Base_Condition">
+		<where>
+		   t.is_deleted = 0
+		   <if test="roleName != null">and t.role_name = #{roleName,jdbcType=VARCHAR}</if>
+		   <if test="roleCode != null">and t.role_code = #{roleCode,jdbcType=VARCHAR}</if>
+		   <if test="description != null">and t.description = #{description,jdbcType=VARCHAR}</if>
+		   <!-- 自定义 -->
+		</where>
+	</sql>
+
+	<!-- 通过复合条件查询 -->
+	<select id="select" resultMap="BaseResultMap" parameterType="java.util.HashMap">
+		select
+		<include refid="Alias_Column_List" />
+		from sys_role t
+		<include refid="Base_Condition" />
+	</select>
+
+	<!-- 统计 -->
+	<select id="count" resultType="java.lang.Integer" parameterType="java.util.HashMap">
+		select count(0)
+		from sys_role t
+		<include refid="Base_Condition" />
+	</select>
+
+	<!-- 通过主键查询对象 -->
+	<select id="selectById" resultMap="BaseResultMap" parameterType="java.lang.Long">
+		select
+		<include refid="Base_Column_List" />
+		from sys_role
+		where id = #{id,jdbcType=BIGINT} and is_deleted = 0
+	</select>
+
+	<!-- 通过主键删除对象 -->
+	<delete id="deleteById" parameterType="java.lang.Long">
+		delete from sys_role
+		where id = #{id,jdbcType=BIGINT}
+	</delete>
+
+	<!-- 新增对象(所有字段) -->
+	<insert id="insertAllField" parameterType="com.tortoise.quake.model.Role">
+		<selectKey resultType="java.lang.Long" order="AFTER" keyProperty="id">
+			SELECT LAST_INSERT_ID() AS id
+		</selectKey>
+
+		insert into sys_role(
+			<include refid="Base_Column_List" />
+		)
+		values(
+			#{id,jdbcType=BIGINT},
+			#{roleName,jdbcType=VARCHAR},
+			#{roleCode,jdbcType=VARCHAR},
+			#{description,jdbcType=VARCHAR},
+			#{createId,jdbcType=VARCHAR},
+			#{createTime,jdbcType=TIMESTAMP},
+			#{updateId,jdbcType=VARCHAR},
+			#{updateTime,jdbcType=TIMESTAMP},
+			#{isDeleted,jdbcType=TINYINT}
+		)
+	</insert>
+
+	<!-- 新增对象(部分字段) -->
+	<insert id="insert" parameterType="com.tortoise.quake.model.Role">
+		<selectKey resultType="java.lang.Long" order="AFTER" keyProperty="id">
+			SELECT LAST_INSERT_ID() AS id
+		</selectKey>
+
+		insert into sys_role
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">id,</if>
+			<if test="roleName != null">role_name,</if>
+			<if test="roleCode != null">role_code,</if>
+			<if test="description != null">description,</if>
+			<if test="createId != null">create_id,</if>
+			<if test="createTime != null">create_time,</if>
+			<if test="updateId != null">update_id,</if>
+			<if test="updateTime != null">update_time,</if>
+			<if test="isDeleted != null">is_deleted,</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">id,</if>
+			<if test="roleName != null">#{roleName,jdbcType=VARCHAR},</if>
+			<if test="roleCode != null">#{roleCode,jdbcType=VARCHAR},</if>
+			<if test="description != null">#{description,jdbcType=VARCHAR},</if>
+			<if test="createId != null">#{createId,jdbcType=VARCHAR},</if>
+			<if test="createTime != null">#{createTime,jdbcType=TIMESTAMP},</if>
+			<if test="updateId != null">#{updateId,jdbcType=VARCHAR},</if>
+			<if test="updateTime != null">#{updateTime,jdbcType=TIMESTAMP},</if>
+			<if test="isDeleted != null">#{isDeleted,jdbcType=TINYINT},</if>
+		</trim>
+	</insert>
+
+	<!-- 修改对象 (部分字段)-->
+	<update id="update" parameterType="com.tortoise.quake.model.Role">
+		update sys_role
+		<set>
+			<if test="roleName != null">role_name = #{roleName,jdbcType=VARCHAR},</if>
+			<if test="roleCode != null">role_code = #{roleCode,jdbcType=VARCHAR},</if>
+			<if test="description != null">description = #{description,jdbcType=VARCHAR},</if>
+			<if test="createId != null">create_id = #{createId,jdbcType=VARCHAR},</if>
+			<if test="createTime != null">create_time = #{createTime,jdbcType=TIMESTAMP},</if>
+			<if test="updateId != null">update_id = #{updateId,jdbcType=VARCHAR},</if>
+			<if test="updateTime != null">update_time = #{updateTime,jdbcType=TIMESTAMP},</if>
+			<if test="isDeleted != null">is_deleted = #{isDeleted,jdbcType=TINYINT},</if>
+		</set>
+		where id = #{id,jdbcType=BIGINT}
+	</update>
+
+	<!-- 修改对象(所有字段) -->
+	<update id="updateAllField" parameterType="com.tortoise.quake.model.Role">
+		update sys_role
+		set
+			role_name = #{roleName,jdbcType=VARCHAR},
+			role_code = #{roleCode,jdbcType=VARCHAR},
+			description = #{description,jdbcType=VARCHAR},
+			create_id = #{createId,jdbcType=VARCHAR},descriptioncreate_time = #{createTime,jdbcType=TIMESTAMP},
+			update_id = #{updateId,jdbcType=VARCHAR},
+			update_time = #{updateTime,jdbcType=TIMESTAMP},
+			is_deleted = #{isDeleted,jdbcType=TINYINT}
+		where id = #{id,jdbcType=BIGINT}
+	</update>
+
+	<!-- 批量插入(所有字段) -->
+	<insert id="batchInsert" parameterType="java.util.List">
+		insert into sys_role(
+			<include refid="Base_Column_List" />
+		)
+		values
+		<foreach collection="list" index="index" item="item" separator=",">
+		(
+			#{item.id}
+			<choose><when test="item.roleName != null">,#{item.roleName}</when><otherwise>,default</otherwise></choose>
+			<choose><when test="item.roleCode != null">,#{item.roleCode}</when><otherwise>,default</otherwise></choose>
+			<choose><when test="item.description != null">,#{item.description}</when><otherwise>,default</otherwise></choose>
+			<choose><when test="item.createId != null">,#{item.createId}</when><otherwise>,default</otherwise></choose>
+			<choose><when test="item.createTime != null">,#{item.createTime}</when><otherwise>,default</otherwise></choose>
+			<choose><when test="item.updateId != null">,#{item.updateId}</when><otherwise>,default</otherwise></choose>
+			<choose><when test="item.updateTime != null">,#{item.updateTime}</when><otherwise>,default</otherwise></choose>
+			<choose><when test="item.isDeleted != null">,#{item.isDeleted}</when><otherwise>,default</otherwise></choose>
+		)
+		</foreach>
+	</insert>
+
+	<!-- 批量插入或更新(所有字段) -->
+	<update id="batchInsertOrUpdate" parameterType="java.util.List">
+		insert into sys_role(
+			<include refid="Base_Column_List" />
+		)
+		values
+		<foreach collection="list" index="index" item="item" separator=",">
+		(
+			#{item.id}
+			<choose><when test="item.roleName != null">,#{item.roleName}</when><otherwise>,default</otherwise></choose>
+			<choose><when test="item.roleCode != null">,#{item.roleCode}</when><otherwise>,default</otherwise></choose>
+			<choose><when test="item.description != null">,#{item.description}</when><otherwise>,default</otherwise></choose>
+			<choose><when test="item.createId != null">,#{item.createId}</when><otherwise>,default</otherwise></choose>
+			<choose><when test="item.createTime != null">,#{item.createTime}</when><otherwise>,default</otherwise></choose>
+			<choose><when test="item.updateId != null">,#{item.updateId}</when><otherwise>,default</otherwise></choose>
+			<choose><when test="item.updateTime != null">,#{item.updateTime}</when><otherwise>,default</otherwise></choose>
+			<choose><when test="item.isDeleted != null">,#{item.isDeleted}</when><otherwise>,default</otherwise></choose>
+		)
+		</foreach>
+		on duplicate key update role_name = values(role_name), role_code = values(role_code), description = values(description), create_id = values(create_id), create_time = values(create_time), update_id = values(update_id), update_time = values(update_time), is_deleted = values(is_deleted)
+	</update>
+
+	<!-- 批量删除 -->
+	<delete id="batchDelete" parameterType="java.util.List">
+		delete from sys_role where id in 
+		<foreach collection="list" index="index" item="item" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+	</delete>
+
+	<!-- 自定义 -->
+</mapper>

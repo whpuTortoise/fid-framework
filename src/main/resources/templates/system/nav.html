@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8"/>
+<title>Insert title here</title>
+</head>
+<body>
+	<nav class="navbar-default navbar-static-side" role="navigation" th:fragment="navigation">
+            <div class="nav-close"><i class="fa fa-times-circle"></i>
+            </div>
+            <div class="sidebar-collapse">
+                <ul class="nav" id="side-menu">
+                    <li class="nav-header">
+                        <div class="dropdown profile-element">
+                            <span><img alt="image" class="img-circle" src="img/profile_small.jpg" /></span>
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                                <span class="clear">
+                               <span class="block m-t-xs"><strong class="font-bold">Beaut-zihan</strong></span>
+                                <span class="text-muted text-xs block">超级管理员<b class="caret"></b></span>
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                                <li><a class="J_menuItem" href="form_avatar.html">修改头像</a>
+                                </li>
+                                <li><a class="J_menuItem" href="profile.html">个人资料</a>
+                                </li>
+                                <li><a class="J_menuItem" href="contacts.html">联系我们</a>
+                                </li>
+                                <li><a class="J_menuItem" href="mailbox.html">信箱</a>
+                                </li>
+                                <li class="divider"></li>
+                                <li><a href="login.html">安全退出</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="logo-element">框架
+                        </div>
+                    </li>
+                    
+                    
+                    <li th:each="prod1,iterStat1 : ${menus}" >
+                    	<!-- 一级节点，没有二级子节点  -->
+                        <a class="J_menuItem" href="#" th:href="${prod1.targetUrl}" th:if="${#lists.isEmpty(prod1.children)}">
+                        	<i class="fa fa-columns"></i> 
+                        	<span class="nav-label" th:text="${prod1.menuName}"></span>
+                        </a>
+                        
+                        <!-- 一级节点，有二级子节点  -->
+                        <a href="#" th:unless="${#lists.isEmpty(prod1.children)}">
+                            <i class="fa fa-columns"></i>
+                            <span class="nav-label" th:text="${prod1.menuName}"></span>
+                            <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level" th:unless="${#lists.isEmpty(prod1.children)}">
+                            <li th:each="prod2,iterStat2 : ${prod1.children}" >
+                            	<!-- 二级节点，没有三级子节点  -->
+                            	<a class="J_menuItem" href="#" th:href="${prod2.targetUrl}" th:if="${#lists.isEmpty(prod2.children)}" th:text="${prod2.menuName}"></a>
+                            	
+                            	<!-- 二级节点，有三级子节点  -->
+                            	<a href="#" th:unless="${#lists.isEmpty(prod2.children)}" ><span th:text="${prod2.menuName}"></span> <span class="fa arrow"></span></a>
+                                <ul class="nav nav-third-level" th:unless="${#lists.isEmpty(prod2.children)}">
+                                    <li th:each="prod3,iterStat3 : ${prod2.children}" >
+                                    	<a class="J_menuItem" href="#" th:href="${prod3.targetUrl}"  th:text="${prod3.menuName}"></a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+	
+</body>
+</html>
+
+
+

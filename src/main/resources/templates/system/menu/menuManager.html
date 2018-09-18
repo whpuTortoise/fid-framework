@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <title>菜单管理</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+
+    <link rel="shortcut icon" href="favicon.ico"/> 
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" />
+	<link th:href="@{/css/font-awesome.min.css}" rel="stylesheet" />
+	
+	<link th:href="@{/css/plugins/treeview/patternfly-bootstrap-treeview.css}" rel="stylesheet"/>
+	<link th:href="@{/css/plugins/sweetalert/sweetalert.css}" rel="stylesheet" />
+	<link th:href="@{/css/plugins/bootstrapValidator/bootstrapValidator.min.css}"  rel="stylesheet" />
+
+    <link th:href="@{/css/animate.min.css}" rel="stylesheet"/>
+    <link th:href="@{/css/style.min.css?v=4.0.0}" rel="stylesheet"/>
+    
+</head>
+
+<body class="gray-bg">
+    <div class="row wrapper wrapper-content animated fadeInRight">
+        
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>系统管理 >> 菜单管理</h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="col-sm-5">
+                    	<h3>菜单树：</h3>
+                        <div id="menuTree" class="test"></div>
+                    </div>
+                    <div class="col-sm-7">
+                        <h3>菜单编辑：</h3>
+                        <div>
+                        	<p>菜单树最大层级为三级，即最多允许新建三级节点；只有一级菜单支持字体图标，其它级菜单设置图标无效；只有叶子节点支持targetUrl跳转，其它级菜单设置targetUrl无效。</p>
+                        	<p>新增：默认新建一级节点，如果有选中的节点则新建其子节点。</p>
+                        	<p>修改：修改选中的节点。</p>
+                        	<p>删除：删除选中的节点及其子节点。</p>
+                        	<br/>
+                        	<p style="font-size: large;font-style: italic;">选中的节点：<font id="event_output" style="color: red;">无</font></p>
+                        </div>
+                        
+                        <div class="col-md-12">
+                        	<button id="btn_add" type="button" class="btn btn-primary" style="margin-right: 2px;">
+								<i class="fa fa-plus"></i> 新增
+							</button>
+							<button id="btn_update" type="button" class="btn btn-primary" style="margin-right: 2px;">
+								<i class="fa fa-pencil-square-o"></i> 编辑
+							</button>
+							<button id="btn_delete" type="button" class="btn btn-primary" style="margin-right: 2px;">
+								<i class="fa fa-remove"></i> 删除
+							</button>
+			            </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
+    <!-- 新增和修改信息的弹窗 -->
+	<div class="modal inmodal fade" id="editModal" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span><span class="sr-only">关闭</span>
+					</button>
+					<h4 class="modal-title" id="modelTitle">窗口标题</h4>
+				</div>
+				<div class="modal-body">
+					<form id="editForm" method="post" class="form-horizontal">
+						<input type="hidden" class="form-control" name="id" id="id" />
+						<input type="hidden" class="form-control" name="pid" id="pid" value="0"/>
+						<input type="hidden" class="form-control" name="level" id="level" value="0"/>
+						<div class="form-group pmenuDiv">
+							<label class="col-sm-2 control-label">父菜单名称</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" name="pmenuName" id="pmenuName" readonly="readonly" value="无"/>
+							</div>
+						</div>
+						<div class="hr-line-dashed pmenuDiv"></div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label">菜单名称</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" name="menuName" id="menuName" />
+							</div>
+						</div>
+						<div class="hr-line-dashed"></div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label">菜单编码</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" name="menuCode" id="menuCode" />
+							</div>
+						</div>
+						<div class="hr-line-dashed"></div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label">菜单图标</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" name="menuIcon" id="menuIcon" />
+							</div>
+						</div>
+						<div class="hr-line-dashed"></div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label">跳转url</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" name="targetUrl" id="targetUrl" />
+							</div>
+						</div>
+					</form>
+				</div>
+
+				<div class="modal-footer">
+					<button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+					<button type="button" class="btn btn-primary" id="saveBtn">保存</button>
+				</div>
+			</div>
+		</div>
+	</div>
+    
+    
+    <script th:src="@{/js/jquery.min.js}"></script>
+	<script th:src="@{/js/bootstrap.min.js}"></script>
+	<script th:src="@{/js/content.min.js}"></script>
+	
+	<script th:src="@{/js/plugins/bootstrapValidator/bootstrapValidator.min.js}" ></script>
+	<script th:src="@{/js/plugins/sweetalert/sweetalert.min.js}"></script>
+	<script th:src="@{/js/plugins/treeview/patternfly-bootstrap-treeview.js}"></script>
+    <script th:src="@{/js/system/menu/menuManager.js}"></script>
+</body>
+
+</html>
