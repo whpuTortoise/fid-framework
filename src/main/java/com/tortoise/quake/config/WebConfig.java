@@ -33,7 +33,7 @@ public class WebConfig extends WebMvcConfigurerAdapter implements
 
 	private ApplicationContext mApplicationContext;
 	
-	@Value("${excludeFilterLoginPath}")
+	@Value("${commconfig.excludeFilterLoginPath}")
     private String excludeFilterLoginPath;
 	
 	public void setApplicationContext(ApplicationContext arg0)

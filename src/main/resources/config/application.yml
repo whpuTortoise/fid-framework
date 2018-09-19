@@ -1,0 +1,48 @@
+# Tomcat
+server:
+    tomcat:
+        uri-encoding: UTF-8
+        max-threads: 1000
+        min-spare-threads: 30
+    port: 8080
+
+spring:
+    # 环境 dev|online
+    profiles:
+        active: dev
+    # jackson时间格式化
+    jackson:
+        time-zone: GMT+8
+        date-format: yyyy-MM-dd HH:mm:ss
+    #上传文件
+    http:
+        multipart:
+            max-file-size: 100MB
+            max-request-size: 100MB
+            enabled: true
+    # 指定静态资源的路径
+    resources: 
+        static-locations: classpath:/static/,classpath:/templates/
+    #thymeleaf配置
+    thymeleaf:
+       prefix: classpath:/templates/
+       suffix: .html
+       encoding: UTF-8
+       content-type: text/html
+       mode: HTML5
+    
+
+# Mybatis配置
+mybatis:
+    mapperLocations: classpath:config/mapper/*.xml
+    configLocation: classpath:config/mybatis-config.xml
+
+#业务配置
+commconfig:
+    #不拦截校验登录状态的路径
+    excludeFilterLoginPath: /login,/toLogin
+
+
+
+
+
