@@ -61,7 +61,7 @@ public class UserController {
 	* @throws
 	 */
 	@ResponseBody
-	@PostMapping("/getUserList")
+	@PostMapping(value = "/getUserList", produces="application/json;charset=UTF-8")
 	public String getUserList(HttpServletRequest request, HttpServletResponse response, UserPageReqVo pageReqVo) {
 		Map<String, Object> queryMap = new HashMap<String, Object>();
 		if(!StringUtils.isEmpty(pageReqVo.getSearchUserName())){

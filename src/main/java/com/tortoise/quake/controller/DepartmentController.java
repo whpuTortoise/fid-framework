@@ -63,7 +63,7 @@ public class DepartmentController {
 	* @throws
 	 */
 	@ResponseBody
-	@PostMapping("/getDepartmentsList")
+	@PostMapping(value = "/getDepartmentsList", produces="application/json;charset=UTF-8")
 	public String getDepartmentsList(HttpServletRequest request, HttpServletResponse response, DepartmentPageReqVo pageReqVo) {
 		Map<String, Object> queryMap = new HashMap<String, Object>();
 		if(!StringUtils.isEmpty(pageReqVo.getSearchDepartmentName())){

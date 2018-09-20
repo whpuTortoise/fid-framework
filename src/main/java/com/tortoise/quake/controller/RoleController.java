@@ -63,7 +63,7 @@ public class RoleController {
 	* @throws
 	 */
 	@ResponseBody
-	@PostMapping("/getRoleList")
+	@PostMapping(value = "/getRoleList", produces="application/json;charset=UTF-8")
 	public String getRoleList(HttpServletRequest request, HttpServletResponse response, RolePageReqVo pageReqVo) {
 		Map<String, Object> queryMap = new HashMap<String, Object>();
 		if(!StringUtils.isEmpty(pageReqVo.getSearchRoleName())){
