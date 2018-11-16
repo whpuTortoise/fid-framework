@@ -20,9 +20,6 @@ spring:
             max-file-size: 100MB
             max-request-size: 100MB
             enabled: true
-    # 指定静态资源的路径
-    resources: 
-        static-locations: classpath:/static/,classpath:/templates/
     #thymeleaf配置
     thymeleaf:
        prefix: classpath:/templates/
