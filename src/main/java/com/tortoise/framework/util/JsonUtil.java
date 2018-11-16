@@ -5,7 +5,8 @@ import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.core.JsonParser.Feature;
@@ -19,7 +20,7 @@ import com.fasterxml.jackson.databind.deser.DeserializationProblemHandler;
  * Jackson类库的封装工具类，专门负责解析json数据</br>
  */
 public class JsonUtil {
-	private static final Logger logger = Logger.getLogger(JsonUtil.class);
+	private static final Logger logger = LoggerFactory.getLogger(JsonUtil.class);
 	/**
 	 * 默认的日期格式
 	 */

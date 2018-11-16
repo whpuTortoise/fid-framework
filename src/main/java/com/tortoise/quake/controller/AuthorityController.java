@@ -21,6 +21,7 @@ import com.tortoise.framework.dto.ApiResult;
 import com.tortoise.quake.model.Authority;
 import com.tortoise.quake.service.AuthorityService;
 import com.tortoise.quake.service.MenuService;
+import com.tortoise.quake.vo.MenuVo;
 
 /**
  * 
@@ -72,7 +73,7 @@ public class AuthorityController {
 	 * @param request
 	 * @param response
 	 * @return
-	 *//*
+	 */
 	@ResponseBody
 	@PostMapping("/getAuthorityTree")
 	public ApiResult getAuthorityTree(HttpServletRequest request, HttpServletResponse response, Long roleId) {
@@ -83,7 +84,7 @@ public class AuthorityController {
 			e.printStackTrace();
 		}
 		return new ApiResult(ApiResult.FAILURE, "失败！", null);
-	}*/
+	}
 	
 	/**
 	 * 保存权限

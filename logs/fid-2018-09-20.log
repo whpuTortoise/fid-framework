@@ -1,0 +1,412 @@
+2018-09-20 09:22:09 42536609 [Thread-8] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@2c9d1206: startup date [Wed Sep 19 21:33:15 CST 2018]; root of context hierarchy 
+2018-09-20 09:22:09 42536673 [Thread-8] INFO  o.s.j.e.a.AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown 
+2018-09-20 09:22:09 42536674 [Thread-8] INFO  o.s.j.e.a.AnnotationMBeanExporter - Unregistering JMX-exposed beans 
+2018-09-20 09:22:09 42536679 [Thread-8] INFO  c.a.druid.pool.DruidDataSource - {dataSource-1} closed 
+2018-09-20 09:22:11 42538502 [restartedMain] INFO  com.tortoise.quake.BaseApplication - Starting BaseApplication on cocofe-PC with PID 7608 (C:\workspace\fid-framework\target\classes started by cocofe in C:\workspace\fid-framework) 
+2018-09-20 09:22:11 42538502 [restartedMain] INFO  com.tortoise.quake.BaseApplication - The following profiles are active: dev 
+2018-09-20 09:22:11 42538541 [restartedMain] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@2ab480e2: startup date [Thu Sep 20 09:22:11 CST 2018]; root of context hierarchy 
+2018-09-20 09:22:12 42539735 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode! 
+2018-09-20 09:22:13 42539880 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$12ddc4c9] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying) 
+2018-09-20 09:22:13 42540051 [restartedMain] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8080 (http) 
+2018-09-20 09:22:13 42540052 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service Tomcat 
+2018-09-20 09:22:13 42540053 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.11 
+2018-09-20 09:22:13 42540064 [localhost-startStop-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext 
+2018-09-20 09:22:13 42540159 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*] 
+2018-09-20 09:22:13 42540160 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'xssFilter' to urls: [/*] 
+2018-09-20 09:22:13 42540160 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'webStatFilter' to urls: [/*] 
+2018-09-20 09:22:13 42540161 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/] 
+2018-09-20 09:22:13 42540162 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'statViewServlet' to [/druid/*] 
+2018-09-20 09:22:14 42541720 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2018-09-20 09:22:15 42542059 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup 
+2018-09-20 09:22:15 42542060 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'statFilter' has been autodetected for JMX exposure 
+2018-09-20 09:22:15 42542060 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'dataSource' has been autodetected for JMX exposure 
+2018-09-20 09:22:15 42542067 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.spring.boot.autoconfigure:name=dataSource,type=DruidDataSourceWrapper] 
+2018-09-20 09:22:15 42542069 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Located MBean 'statFilter': registering with JMX server as MBean [com.alibaba.druid.filter.stat:name=statFilter,type=StatFilter] 
+2018-09-20 09:22:15 42542078 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2018-09-20 09:22:15 42542078 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler [http-nio-8080] 
+2018-09-20 09:22:15 42542081 [restartedMain] INFO  o.a.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read 
+2018-09-20 09:22:15 42542085 [restartedMain] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8080 (http) 
+2018-09-20 09:22:15 42542088 [restartedMain] INFO  com.tortoise.quake.BaseApplication - Started BaseApplication in 4.127 seconds (JVM running for 42539.091) 
+2018-09-20 09:22:23 42550344 [Thread-12] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@2ab480e2: startup date [Thu Sep 20 09:22:11 CST 2018]; root of context hierarchy 
+2018-09-20 09:22:23 42550353 [Thread-12] INFO  o.s.j.e.a.AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown 
+2018-09-20 09:22:23 42550354 [Thread-12] INFO  o.s.j.e.a.AnnotationMBeanExporter - Unregistering JMX-exposed beans 
+2018-09-20 09:22:24 42551094 [restartedMain] INFO  com.tortoise.quake.BaseApplication - Starting BaseApplication on cocofe-PC with PID 7608 (C:\workspace\fid-framework\target\classes started by cocofe in C:\workspace\fid-framework) 
+2018-09-20 09:22:24 42551094 [restartedMain] INFO  com.tortoise.quake.BaseApplication - The following profiles are active: dev 
+2018-09-20 09:22:24 42551102 [restartedMain] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@73332fdb: startup date [Thu Sep 20 09:22:24 CST 2018]; root of context hierarchy 
+2018-09-20 09:22:25 42551833 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode! 
+2018-09-20 09:22:25 42551969 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$12ddc4c9] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying) 
+2018-09-20 09:22:25 42552123 [restartedMain] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8080 (http) 
+2018-09-20 09:22:25 42552124 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service Tomcat 
+2018-09-20 09:22:25 42552124 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.11 
+2018-09-20 09:22:25 42552138 [localhost-startStop-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext 
+2018-09-20 09:22:25 42552236 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*] 
+2018-09-20 09:22:25 42552236 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'xssFilter' to urls: [/*] 
+2018-09-20 09:22:25 42552236 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'webStatFilter' to urls: [/*] 
+2018-09-20 09:22:25 42552236 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/] 
+2018-09-20 09:22:25 42552237 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'statViewServlet' to [/druid/*] 
+2018-09-20 09:22:27 42553807 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2018-09-20 09:22:27 42554087 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup 
+2018-09-20 09:22:27 42554087 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'statFilter' has been autodetected for JMX exposure 
+2018-09-20 09:22:27 42554087 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'dataSource' has been autodetected for JMX exposure 
+2018-09-20 09:22:27 42554091 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.spring.boot.autoconfigure:name=dataSource,type=DruidDataSourceWrapper] 
+2018-09-20 09:22:27 42554093 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Located MBean 'statFilter': registering with JMX server as MBean [com.alibaba.druid.filter.stat:name=statFilter,type=StatFilter] 
+2018-09-20 09:22:27 42554100 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2018-09-20 09:22:27 42554101 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler [http-nio-8080] 
+2018-09-20 09:22:27 42554102 [restartedMain] INFO  o.a.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read 
+2018-09-20 09:22:27 42554105 [restartedMain] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8080 (http) 
+2018-09-20 09:22:27 42554107 [restartedMain] INFO  com.tortoise.quake.BaseApplication - Started BaseApplication in 3.142 seconds (JVM running for 42551.109) 
+2018-09-20 09:22:33 42560161 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet' 
+2018-09-20 09:22:33 42560181 [http-nio-8080-exec-1] INFO  c.t.quake.interceptor.MyInterceptor - ------preHandle------ 
+2018-09-20 09:22:33 42560181 [http-nio-8080-exec-1] INFO  c.t.quake.interceptor.MyInterceptor - ------:跳转到login页面！ 
+2018-09-20 09:22:33 42560195 [http-nio-8080-exec-2] INFO  org.thymeleaf.TemplateEngine - [THYMELEAF] INITIALIZING TEMPLATE ENGINE 
+2018-09-20 09:22:33 42560199 [http-nio-8080-exec-2] INFO  o.t.t.AbstractTemplateResolver - [THYMELEAF] INITIALIZING TEMPLATE RESOLVER: org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver 
+2018-09-20 09:22:33 42560199 [http-nio-8080-exec-2] INFO  o.t.t.AbstractTemplateResolver - [THYMELEAF] TEMPLATE RESOLVER INITIALIZED OK 
+2018-09-20 09:22:33 42560199 [http-nio-8080-exec-2] INFO  o.t.m.AbstractMessageResolver - [THYMELEAF] INITIALIZING MESSAGE RESOLVER: org.thymeleaf.spring4.messageresolver.SpringMessageResolver 
+2018-09-20 09:22:33 42560199 [http-nio-8080-exec-2] INFO  o.t.m.AbstractMessageResolver - [THYMELEAF] MESSAGE RESOLVER INITIALIZED OK 
+2018-09-20 09:22:33 42560199 [http-nio-8080-exec-2] INFO  org.thymeleaf.TemplateEngine.CONFIG - [THYMELEAF] TEMPLATE ENGINE CONFIGURATION:
+[THYMELEAF] * Cache Factory implementation: org.thymeleaf.cache.StandardCacheManager
+[THYMELEAF] * Template modes:
+[THYMELEAF]     * XML
+[THYMELEAF]     * LEGACYHTML5
+[THYMELEAF]     * XHTML
+[THYMELEAF]     * VALIDXHTML
+[THYMELEAF]     * VALIDXML
+[THYMELEAF]     * HTML5
+[THYMELEAF] * Template resolvers (in order):
+[THYMELEAF]     * org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver
+[THYMELEAF] * Message resolvers (in order):
+[THYMELEAF]     * org.thymeleaf.spring4.messageresolver.SpringMessageResolver
+[THYMELEAF] * Dialect [1 of 2]: org.thymeleaf.spring4.dialect.SpringStandardDialect
+[THYMELEAF]     * Prefix: "th"
+[THYMELEAF] * Dialect [2 of 2]: nz.net.ultraq.thymeleaf.LayoutDialect
+[THYMELEAF]     * Prefix: "layout"
+[THYMELEAF] TEMPLATE ENGINE CONFIGURED OK 
+2018-09-20 09:22:33 42560199 [http-nio-8080-exec-2] INFO  org.thymeleaf.TemplateEngine - [THYMELEAF] TEMPLATE ENGINE INITIALIZED 
+2018-09-20 09:22:40 42567047 [http-nio-8080-exec-11] INFO  c.a.druid.pool.DruidDataSource - {dataSource-2} inited 
+2018-09-20 09:22:40 42567142 [http-nio-8080-exec-12] INFO  c.t.quake.interceptor.MyInterceptor - ------preHandle------ 
+2018-09-20 09:22:40 42567458 [http-nio-8080-exec-20] INFO  c.t.quake.interceptor.MyInterceptor - ------preHandle------ 
+2018-09-20 09:22:42 42569735 [http-nio-8080-exec-19] INFO  c.t.quake.interceptor.MyInterceptor - ------preHandle------ 
+2018-09-20 09:22:43 42570018 [http-nio-8080-exec-26] INFO  c.t.quake.interceptor.MyInterceptor - ------preHandle------ 
+2018-09-20 09:31:59 43125836 [Thread-20] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@73332fdb: startup date [Thu Sep 20 09:22:24 CST 2018]; root of context hierarchy 
+2018-09-20 09:31:59 43125840 [Thread-20] INFO  o.s.j.e.a.AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown 
+2018-09-20 09:31:59 43125841 [Thread-20] INFO  o.s.j.e.a.AnnotationMBeanExporter - Unregistering JMX-exposed beans 
+2018-09-20 09:31:59 43125854 [Thread-20] INFO  c.a.druid.pool.DruidDataSource - {dataSource-2} closed 
+2018-09-20 09:31:59 43126681 [restartedMain] INFO  com.tortoise.quake.BaseApplication - Starting BaseApplication on cocofe-PC with PID 7608 (C:\workspace\fid-framework\target\classes started by cocofe in C:\workspace\fid-framework) 
+2018-09-20 09:31:59 43126681 [restartedMain] INFO  com.tortoise.quake.BaseApplication - The following profiles are active: dev 
+2018-09-20 09:31:59 43126683 [restartedMain] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@5efb8416: startup date [Thu Sep 20 09:31:59 CST 2018]; root of context hierarchy 
+2018-09-20 09:32:00 43127456 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode! 
+2018-09-20 09:32:00 43127572 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$12ddc4c9] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying) 
+2018-09-20 09:32:00 43127692 [restartedMain] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8080 (http) 
+2018-09-20 09:32:00 43127693 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service Tomcat 
+2018-09-20 09:32:00 43127693 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.11 
+2018-09-20 09:32:00 43127706 [localhost-startStop-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext 
+2018-09-20 09:32:01 43127821 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*] 
+2018-09-20 09:32:01 43127821 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'xssFilter' to urls: [/*] 
+2018-09-20 09:32:01 43127821 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'webStatFilter' to urls: [/*] 
+2018-09-20 09:32:01 43127821 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/] 
+2018-09-20 09:32:01 43127821 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'statViewServlet' to [/druid/*] 
+2018-09-20 09:32:02 43128988 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2018-09-20 09:32:02 43129259 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup 
+2018-09-20 09:32:02 43129259 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'statFilter' has been autodetected for JMX exposure 
+2018-09-20 09:32:02 43129259 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'dataSource' has been autodetected for JMX exposure 
+2018-09-20 09:32:02 43129264 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.spring.boot.autoconfigure:name=dataSource,type=DruidDataSourceWrapper] 
+2018-09-20 09:32:02 43129267 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Located MBean 'statFilter': registering with JMX server as MBean [com.alibaba.druid.filter.stat:name=statFilter,type=StatFilter] 
+2018-09-20 09:32:02 43129274 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2018-09-20 09:32:02 43129274 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler [http-nio-8080] 
+2018-09-20 09:32:02 43129275 [restartedMain] INFO  o.a.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read 
+2018-09-20 09:32:02 43129280 [restartedMain] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8080 (http) 
+2018-09-20 09:32:02 43129284 [restartedMain] INFO  com.tortoise.quake.BaseApplication - Started BaseApplication in 2.756 seconds (JVM running for 43126.235) 
+2018-09-20 09:32:28 43155199 [Thread-28] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@5efb8416: startup date [Thu Sep 20 09:31:59 CST 2018]; root of context hierarchy 
+2018-09-20 09:32:28 43155207 [Thread-28] INFO  o.s.j.e.a.AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown 
+2018-09-20 09:32:28 43155208 [Thread-28] INFO  o.s.j.e.a.AnnotationMBeanExporter - Unregistering JMX-exposed beans 
+2018-09-20 09:32:29 43155786 [restartedMain] INFO  com.tortoise.quake.BaseApplication - Starting BaseApplication on cocofe-PC with PID 7608 (C:\workspace\fid-framework\target\classes started by cocofe in C:\workspace\fid-framework) 
+2018-09-20 09:32:29 43155786 [restartedMain] INFO  com.tortoise.quake.BaseApplication - The following profiles are active: dev 
+2018-09-20 09:32:29 43155789 [restartedMain] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@70fc01e9: startup date [Thu Sep 20 09:32:29 CST 2018]; root of context hierarchy 
+2018-09-20 09:32:29 43156474 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode! 
+2018-09-20 09:32:29 43156591 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$12ddc4c9] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying) 
+2018-09-20 09:32:29 43156705 [restartedMain] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8080 (http) 
+2018-09-20 09:32:29 43156706 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service Tomcat 
+2018-09-20 09:32:29 43156706 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.11 
+2018-09-20 09:32:29 43156717 [localhost-startStop-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext 
+2018-09-20 09:32:30 43156795 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*] 
+2018-09-20 09:32:30 43156795 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'xssFilter' to urls: [/*] 
+2018-09-20 09:32:30 43156795 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'webStatFilter' to urls: [/*] 
+2018-09-20 09:32:30 43156795 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/] 
+2018-09-20 09:32:30 43156796 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'statViewServlet' to [/druid/*] 
+2018-09-20 09:32:31 43157897 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2018-09-20 09:32:31 43158138 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup 
+2018-09-20 09:32:31 43158139 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'statFilter' has been autodetected for JMX exposure 
+2018-09-20 09:32:31 43158139 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'dataSource' has been autodetected for JMX exposure 
+2018-09-20 09:32:31 43158141 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.spring.boot.autoconfigure:name=dataSource,type=DruidDataSourceWrapper] 
+2018-09-20 09:32:31 43158143 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Located MBean 'statFilter': registering with JMX server as MBean [com.alibaba.druid.filter.stat:name=statFilter,type=StatFilter] 
+2018-09-20 09:32:31 43158149 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2018-09-20 09:32:31 43158149 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler [http-nio-8080] 
+2018-09-20 09:32:31 43158150 [restartedMain] INFO  o.a.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read 
+2018-09-20 09:32:31 43158156 [restartedMain] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8080 (http) 
+2018-09-20 09:32:31 43158158 [restartedMain] INFO  com.tortoise.quake.BaseApplication - Started BaseApplication in 2.484 seconds (JVM running for 43155.107) 
+2018-09-20 09:32:34 43161562 [Thread-36] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@70fc01e9: startup date [Thu Sep 20 09:32:29 CST 2018]; root of context hierarchy 
+2018-09-20 09:32:34 43161564 [Thread-36] INFO  o.s.j.e.a.AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown 
+2018-09-20 09:32:34 43161564 [Thread-36] INFO  o.s.j.e.a.AnnotationMBeanExporter - Unregistering JMX-exposed beans 
+2018-09-20 09:32:35 43162076 [restartedMain] INFO  com.tortoise.quake.BaseApplication - Starting BaseApplication on cocofe-PC with PID 7608 (C:\workspace\fid-framework\target\classes started by cocofe in C:\workspace\fid-framework) 
+2018-09-20 09:32:35 43162076 [restartedMain] INFO  com.tortoise.quake.BaseApplication - The following profiles are active: dev 
+2018-09-20 09:32:35 43162084 [restartedMain] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@77c17a2f: startup date [Thu Sep 20 09:32:35 CST 2018]; root of context hierarchy 
+2018-09-20 09:32:35 43162706 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode! 
+2018-09-20 09:32:36 43162851 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$12ddc4c9] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying) 
+2018-09-20 09:32:36 43162951 [restartedMain] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8080 (http) 
+2018-09-20 09:32:36 43162952 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service Tomcat 
+2018-09-20 09:32:36 43162952 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.11 
+2018-09-20 09:32:36 43162966 [localhost-startStop-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext 
+2018-09-20 09:32:36 43163042 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*] 
+2018-09-20 09:32:36 43163042 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'xssFilter' to urls: [/*] 
+2018-09-20 09:32:36 43163042 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'webStatFilter' to urls: [/*] 
+2018-09-20 09:32:36 43163042 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/] 
+2018-09-20 09:32:36 43163043 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'statViewServlet' to [/druid/*] 
+2018-09-20 09:32:37 43164209 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2018-09-20 09:32:37 43164429 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup 
+2018-09-20 09:32:37 43164430 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'statFilter' has been autodetected for JMX exposure 
+2018-09-20 09:32:37 43164430 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'dataSource' has been autodetected for JMX exposure 
+2018-09-20 09:32:37 43164432 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.spring.boot.autoconfigure:name=dataSource,type=DruidDataSourceWrapper] 
+2018-09-20 09:32:37 43164433 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Located MBean 'statFilter': registering with JMX server as MBean [com.alibaba.druid.filter.stat:name=statFilter,type=StatFilter] 
+2018-09-20 09:32:37 43164437 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2018-09-20 09:32:37 43164437 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler [http-nio-8080] 
+2018-09-20 09:32:37 43164438 [restartedMain] INFO  o.a.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read 
+2018-09-20 09:32:37 43164441 [restartedMain] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8080 (http) 
+2018-09-20 09:32:37 43164443 [restartedMain] INFO  com.tortoise.quake.BaseApplication - Started BaseApplication in 2.444 seconds (JVM running for 43161.391) 
+2018-09-20 09:32:40 43166875 [Thread-44] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@77c17a2f: startup date [Thu Sep 20 09:32:35 CST 2018]; root of context hierarchy 
+2018-09-20 09:32:40 43166878 [Thread-44] INFO  o.s.j.e.a.AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown 
+2018-09-20 09:32:40 43166878 [Thread-44] INFO  o.s.j.e.a.AnnotationMBeanExporter - Unregistering JMX-exposed beans 
+2018-09-20 09:32:40 43167354 [restartedMain] INFO  com.tortoise.quake.BaseApplication - Starting BaseApplication on cocofe-PC with PID 7608 (C:\workspace\fid-framework\target\classes started by cocofe in C:\workspace\fid-framework) 
+2018-09-20 09:32:40 43167354 [restartedMain] INFO  com.tortoise.quake.BaseApplication - The following profiles are active: dev 
+2018-09-20 09:32:40 43167361 [restartedMain] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@2caa2c7d: startup date [Thu Sep 20 09:32:40 CST 2018]; root of context hierarchy 
+2018-09-20 09:32:41 43167796 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode! 
+2018-09-20 09:32:41 43167885 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$12ddc4c9] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying) 
+2018-09-20 09:32:41 43167978 [restartedMain] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8080 (http) 
+2018-09-20 09:32:41 43167979 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service Tomcat 
+2018-09-20 09:32:41 43167980 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.11 
+2018-09-20 09:32:41 43167996 [localhost-startStop-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext 
+2018-09-20 09:32:41 43168129 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*] 
+2018-09-20 09:32:41 43168130 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'xssFilter' to urls: [/*] 
+2018-09-20 09:32:41 43168130 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'webStatFilter' to urls: [/*] 
+2018-09-20 09:32:41 43168130 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/] 
+2018-09-20 09:32:41 43168131 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'statViewServlet' to [/druid/*] 
+2018-09-20 09:32:42 43169197 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2018-09-20 09:32:42 43169397 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup 
+2018-09-20 09:32:42 43169398 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'statFilter' has been autodetected for JMX exposure 
+2018-09-20 09:32:42 43169398 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'dataSource' has been autodetected for JMX exposure 
+2018-09-20 09:32:42 43169400 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.spring.boot.autoconfigure:name=dataSource,type=DruidDataSourceWrapper] 
+2018-09-20 09:32:42 43169402 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Located MBean 'statFilter': registering with JMX server as MBean [com.alibaba.druid.filter.stat:name=statFilter,type=StatFilter] 
+2018-09-20 09:32:42 43169407 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2018-09-20 09:32:42 43169407 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler [http-nio-8080] 
+2018-09-20 09:32:42 43169408 [restartedMain] INFO  o.a.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read 
+2018-09-20 09:32:42 43169412 [restartedMain] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8080 (http) 
+2018-09-20 09:32:42 43169414 [restartedMain] INFO  com.tortoise.quake.BaseApplication - Started BaseApplication in 2.148 seconds (JVM running for 43166.362) 
+2018-09-20 09:32:59 43186266 [Thread-52] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@2caa2c7d: startup date [Thu Sep 20 09:32:40 CST 2018]; root of context hierarchy 
+2018-09-20 09:32:59 43186271 [Thread-52] INFO  o.s.j.e.a.AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown 
+2018-09-20 09:32:59 43186271 [Thread-52] INFO  o.s.j.e.a.AnnotationMBeanExporter - Unregistering JMX-exposed beans 
+2018-09-20 09:33:00 43186916 [restartedMain] INFO  com.tortoise.quake.BaseApplication - Starting BaseApplication on cocofe-PC with PID 7608 (C:\workspace\fid-framework\target\classes started by cocofe in C:\workspace\fid-framework) 
+2018-09-20 09:33:00 43186917 [restartedMain] INFO  com.tortoise.quake.BaseApplication - The following profiles are active: dev 
+2018-09-20 09:33:00 43186923 [restartedMain] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@70929a39: startup date [Thu Sep 20 09:33:00 CST 2018]; root of context hierarchy 
+2018-09-20 09:33:00 43187469 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode! 
+2018-09-20 09:33:00 43187567 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$12ddc4c9] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying) 
+2018-09-20 09:33:00 43187680 [restartedMain] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8080 (http) 
+2018-09-20 09:33:00 43187680 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service Tomcat 
+2018-09-20 09:33:00 43187681 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.11 
+2018-09-20 09:33:00 43187692 [localhost-startStop-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext 
+2018-09-20 09:33:01 43187793 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*] 
+2018-09-20 09:33:01 43187794 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'xssFilter' to urls: [/*] 
+2018-09-20 09:33:01 43187794 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'webStatFilter' to urls: [/*] 
+2018-09-20 09:33:01 43187794 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/] 
+2018-09-20 09:33:01 43187795 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'statViewServlet' to [/druid/*] 
+2018-09-20 09:33:02 43188756 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2018-09-20 09:33:02 43188938 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup 
+2018-09-20 09:33:02 43188938 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'statFilter' has been autodetected for JMX exposure 
+2018-09-20 09:33:02 43188938 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'dataSource' has been autodetected for JMX exposure 
+2018-09-20 09:33:02 43188941 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.spring.boot.autoconfigure:name=dataSource,type=DruidDataSourceWrapper] 
+2018-09-20 09:33:02 43188942 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Located MBean 'statFilter': registering with JMX server as MBean [com.alibaba.druid.filter.stat:name=statFilter,type=StatFilter] 
+2018-09-20 09:33:02 43188947 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2018-09-20 09:33:02 43188947 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler [http-nio-8080] 
+2018-09-20 09:33:02 43188948 [restartedMain] INFO  o.a.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read 
+2018-09-20 09:33:02 43188956 [restartedMain] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8080 (http) 
+2018-09-20 09:33:02 43188958 [restartedMain] INFO  com.tortoise.quake.BaseApplication - Started BaseApplication in 2.168 seconds (JVM running for 43185.904) 
+2018-09-20 09:33:05 43191816 [Thread-60] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@70929a39: startup date [Thu Sep 20 09:33:00 CST 2018]; root of context hierarchy 
+2018-09-20 09:33:05 43191820 [Thread-60] INFO  o.s.j.e.a.AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown 
+2018-09-20 09:33:05 43191821 [Thread-60] INFO  o.s.j.e.a.AnnotationMBeanExporter - Unregistering JMX-exposed beans 
+2018-09-20 09:33:05 43192259 [restartedMain] INFO  com.tortoise.quake.BaseApplication - Starting BaseApplication on cocofe-PC with PID 7608 (C:\workspace\fid-framework\target\classes started by cocofe in C:\workspace\fid-framework) 
+2018-09-20 09:33:05 43192259 [restartedMain] INFO  com.tortoise.quake.BaseApplication - The following profiles are active: dev 
+2018-09-20 09:33:05 43192263 [restartedMain] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1fdc5ee4: startup date [Thu Sep 20 09:33:05 CST 2018]; root of context hierarchy 
+2018-09-20 09:33:06 43192809 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode! 
+2018-09-20 09:33:06 43192957 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$12ddc4c9] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying) 
+2018-09-20 09:33:06 43193052 [restartedMain] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8080 (http) 
+2018-09-20 09:33:06 43193054 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service Tomcat 
+2018-09-20 09:33:06 43193054 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.11 
+2018-09-20 09:33:06 43193064 [localhost-startStop-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext 
+2018-09-20 09:33:06 43193146 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*] 
+2018-09-20 09:33:06 43193147 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'xssFilter' to urls: [/*] 
+2018-09-20 09:33:06 43193147 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'webStatFilter' to urls: [/*] 
+2018-09-20 09:33:06 43193147 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/] 
+2018-09-20 09:33:06 43193147 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'statViewServlet' to [/druid/*] 
+2018-09-20 09:33:07 43194217 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2018-09-20 09:33:07 43194458 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup 
+2018-09-20 09:33:07 43194459 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'statFilter' has been autodetected for JMX exposure 
+2018-09-20 09:33:07 43194459 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'dataSource' has been autodetected for JMX exposure 
+2018-09-20 09:33:07 43194462 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.spring.boot.autoconfigure:name=dataSource,type=DruidDataSourceWrapper] 
+2018-09-20 09:33:07 43194463 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Located MBean 'statFilter': registering with JMX server as MBean [com.alibaba.druid.filter.stat:name=statFilter,type=StatFilter] 
+2018-09-20 09:33:07 43194468 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2018-09-20 09:33:07 43194468 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler [http-nio-8080] 
+2018-09-20 09:33:07 43194470 [restartedMain] INFO  o.a.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read 
+2018-09-20 09:33:07 43194474 [restartedMain] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8080 (http) 
+2018-09-20 09:33:07 43194477 [restartedMain] INFO  com.tortoise.quake.BaseApplication - Started BaseApplication in 2.324 seconds (JVM running for 43191.423) 
+2018-09-20 09:33:46 43232787 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet' 
+2018-09-20 09:33:46 43232806 [http-nio-8080-exec-1] INFO  c.t.quake.interceptor.MyInterceptor - ------preHandle------ 
+2018-09-20 09:33:51 43237942 [http-nio-8080-exec-1] INFO  c.a.druid.pool.DruidDataSource - {dataSource-3} inited 
+2018-09-20 09:33:51 43238002 [http-nio-8080-exec-1] INFO  org.thymeleaf.TemplateEngine - [THYMELEAF] INITIALIZING TEMPLATE ENGINE 
+2018-09-20 09:33:51 43238004 [http-nio-8080-exec-1] INFO  o.t.t.AbstractTemplateResolver - [THYMELEAF] INITIALIZING TEMPLATE RESOLVER: org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver 
+2018-09-20 09:33:51 43238004 [http-nio-8080-exec-1] INFO  o.t.t.AbstractTemplateResolver - [THYMELEAF] TEMPLATE RESOLVER INITIALIZED OK 
+2018-09-20 09:33:51 43238005 [http-nio-8080-exec-1] INFO  o.t.m.AbstractMessageResolver - [THYMELEAF] INITIALIZING MESSAGE RESOLVER: org.thymeleaf.spring4.messageresolver.SpringMessageResolver 
+2018-09-20 09:33:51 43238005 [http-nio-8080-exec-1] INFO  o.t.m.AbstractMessageResolver - [THYMELEAF] MESSAGE RESOLVER INITIALIZED OK 
+2018-09-20 09:33:51 43238005 [http-nio-8080-exec-1] INFO  org.thymeleaf.TemplateEngine.CONFIG - [THYMELEAF] TEMPLATE ENGINE CONFIGURATION:
+[THYMELEAF] * Cache Factory implementation: org.thymeleaf.cache.StandardCacheManager
+[THYMELEAF] * Template modes:
+[THYMELEAF]     * XML
+[THYMELEAF]     * LEGACYHTML5
+[THYMELEAF]     * XHTML
+[THYMELEAF]     * VALIDXHTML
+[THYMELEAF]     * VALIDXML
+[THYMELEAF]     * HTML5
+[THYMELEAF] * Template resolvers (in order):
+[THYMELEAF]     * org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver
+[THYMELEAF] * Message resolvers (in order):
+[THYMELEAF]     * org.thymeleaf.spring4.messageresolver.SpringMessageResolver
+[THYMELEAF] * Dialect [1 of 2]: org.thymeleaf.spring4.dialect.SpringStandardDialect
+[THYMELEAF]     * Prefix: "th"
+[THYMELEAF] * Dialect [2 of 2]: nz.net.ultraq.thymeleaf.LayoutDialect
+[THYMELEAF]     * Prefix: "layout"
+[THYMELEAF] TEMPLATE ENGINE CONFIGURED OK 
+2018-09-20 09:33:51 43238005 [http-nio-8080-exec-1] INFO  org.thymeleaf.TemplateEngine - [THYMELEAF] TEMPLATE ENGINE INITIALIZED 
+2018-09-20 09:33:51 43238135 [http-nio-8080-exec-2] INFO  c.t.quake.interceptor.MyInterceptor - ------preHandle------ 
+2018-09-20 09:33:53 43240375 [http-nio-8080-exec-3] INFO  c.t.quake.interceptor.MyInterceptor - ------preHandle------ 
+2018-09-20 09:33:53 43240705 [http-nio-8080-exec-4] INFO  c.t.quake.interceptor.MyInterceptor - ------preHandle------ 
+2018-09-20 09:34:05 43251931 [http-nio-8080-exec-5] INFO  c.t.quake.interceptor.MyInterceptor - ------preHandle------ 
+2018-09-20 09:34:05 43252081 [http-nio-8080-exec-6] INFO  c.t.quake.interceptor.MyInterceptor - ------preHandle------ 
+2018-09-20 09:34:07 43254399 [http-nio-8080-exec-7] INFO  c.t.quake.interceptor.MyInterceptor - ------preHandle------ 
+2018-09-20 09:34:07 43254674 [http-nio-8080-exec-8] INFO  c.t.quake.interceptor.MyInterceptor - ------preHandle------ 
+2018-09-20 09:34:15 1952 [restartedMain] INFO  com.tortoise.quake.BaseApplication - Starting BaseApplication on cocofe-PC with PID 8456 (C:\workspace\fid-framework\target\classes started by cocofe in C:\workspace\fid-framework) 
+2018-09-20 09:34:15 1954 [restartedMain] INFO  com.tortoise.quake.BaseApplication - The following profiles are active: dev 
+2018-09-20 09:34:16 2933 [restartedMain] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@55c70620: startup date [Thu Sep 20 09:34:16 CST 2018]; root of context hierarchy 
+2018-09-20 09:34:16 2961 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 5.3.4.Final 
+2018-09-20 09:34:18 4827 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode! 
+2018-09-20 09:34:20 6175 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$2e63b360] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying) 
+2018-09-20 09:34:21 7228 [restartedMain] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8080 (http) 
+2018-09-20 09:34:21 7257 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service Tomcat 
+2018-09-20 09:34:21 7259 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.11 
+2018-09-20 09:34:21 7494 [localhost-startStop-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext 
+2018-09-20 09:34:22 8228 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*] 
+2018-09-20 09:34:22 8230 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'xssFilter' to urls: [/*] 
+2018-09-20 09:34:22 8230 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'webStatFilter' to urls: [/*] 
+2018-09-20 09:34:22 8230 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/] 
+2018-09-20 09:34:22 8233 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'statViewServlet' to [/druid/*] 
+2018-09-20 09:34:33 19483 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2018-09-20 09:34:33 19847 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup 
+2018-09-20 09:34:33 19849 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'statFilter' has been autodetected for JMX exposure 
+2018-09-20 09:34:33 19850 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'dataSource' has been autodetected for JMX exposure 
+2018-09-20 09:34:33 19859 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.spring.boot.autoconfigure:name=dataSource,type=DruidDataSourceWrapper] 
+2018-09-20 09:34:33 19862 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Located MBean 'statFilter': registering with JMX server as MBean [com.alibaba.druid.filter.stat:name=statFilter,type=StatFilter] 
+2018-09-20 09:34:33 19889 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2018-09-20 09:34:33 19910 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler [http-nio-8080] 
+2018-09-20 09:34:33 19934 [restartedMain] INFO  o.a.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read 
+2018-09-20 09:34:33 19973 [restartedMain] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8080 (http) 
+2018-09-20 09:34:33 19982 [restartedMain] INFO  com.tortoise.quake.BaseApplication - Started BaseApplication in 19.272 seconds (JVM running for 20.612) 
+2018-09-20 09:34:39 25988 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet' 
+2018-09-20 09:34:39 26097 [http-nio-8080-exec-1] INFO  c.t.quake.interceptor.MyInterceptor - ------preHandle------ 
+2018-09-20 09:34:39 26112 [http-nio-8080-exec-1] INFO  c.t.quake.interceptor.MyInterceptor - ------:跳转到login页面！ 
+2018-09-20 09:34:40 26237 [http-nio-8080-exec-2] INFO  org.thymeleaf.TemplateEngine - [THYMELEAF] INITIALIZING TEMPLATE ENGINE 
+2018-09-20 09:34:40 26339 [http-nio-8080-exec-2] INFO  o.t.t.AbstractTemplateResolver - [THYMELEAF] INITIALIZING TEMPLATE RESOLVER: org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver 
+2018-09-20 09:34:40 26340 [http-nio-8080-exec-2] INFO  o.t.t.AbstractTemplateResolver - [THYMELEAF] TEMPLATE RESOLVER INITIALIZED OK 
+2018-09-20 09:34:40 26340 [http-nio-8080-exec-2] INFO  o.t.m.AbstractMessageResolver - [THYMELEAF] INITIALIZING MESSAGE RESOLVER: org.thymeleaf.spring4.messageresolver.SpringMessageResolver 
+2018-09-20 09:34:40 26340 [http-nio-8080-exec-2] INFO  o.t.m.AbstractMessageResolver - [THYMELEAF] MESSAGE RESOLVER INITIALIZED OK 
+2018-09-20 09:34:40 26348 [http-nio-8080-exec-2] INFO  org.thymeleaf.TemplateEngine.CONFIG - [THYMELEAF] TEMPLATE ENGINE CONFIGURATION:
+[THYMELEAF] * Cache Factory implementation: org.thymeleaf.cache.StandardCacheManager
+[THYMELEAF] * Template modes:
+[THYMELEAF]     * XHTML
+[THYMELEAF]     * HTML5
+[THYMELEAF]     * XML
+[THYMELEAF]     * LEGACYHTML5
+[THYMELEAF]     * VALIDXHTML
+[THYMELEAF]     * VALIDXML
+[THYMELEAF] * Template resolvers (in order):
+[THYMELEAF]     * org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver
+[THYMELEAF] * Message resolvers (in order):
+[THYMELEAF]     * org.thymeleaf.spring4.messageresolver.SpringMessageResolver
+[THYMELEAF] * Dialect [1 of 2]: org.thymeleaf.spring4.dialect.SpringStandardDialect
+[THYMELEAF]     * Prefix: "th"
+[THYMELEAF] * Dialect [2 of 2]: nz.net.ultraq.thymeleaf.LayoutDialect
+[THYMELEAF]     * Prefix: "layout"
+[THYMELEAF] TEMPLATE ENGINE CONFIGURED OK 
+2018-09-20 09:34:40 26349 [http-nio-8080-exec-2] INFO  org.thymeleaf.TemplateEngine - [THYMELEAF] TEMPLATE ENGINE INITIALIZED 
+2018-09-20 09:34:49 35240 [http-nio-8080-exec-3] INFO  c.a.druid.pool.DruidDataSource - {dataSource-1} inited 
+2018-09-20 09:34:49 35579 [http-nio-8080-exec-5] INFO  c.t.quake.interceptor.MyInterceptor - ------preHandle------ 
+2018-09-20 09:34:49 35946 [http-nio-8080-exec-6] INFO  c.t.quake.interceptor.MyInterceptor - ------preHandle------ 
+2018-09-20 09:34:51 38031 [http-nio-8080-exec-7] INFO  c.t.quake.interceptor.MyInterceptor - ------preHandle------ 
+2018-09-20 09:34:52 38270 [http-nio-8080-exec-8] INFO  c.t.quake.interceptor.MyInterceptor - ------preHandle------ 
+2018-09-20 09:35:06 53003 [http-nio-8080-exec-9] INFO  c.t.quake.interceptor.MyInterceptor - ------preHandle------ 
+2018-09-20 09:35:07 53185 [http-nio-8080-exec-10] INFO  c.t.quake.interceptor.MyInterceptor - ------preHandle------ 
+2018-09-20 09:35:10 56506 [http-nio-8080-exec-11] INFO  c.t.quake.interceptor.MyInterceptor - ------preHandle------ 
+2018-09-20 09:35:10 56782 [http-nio-8080-exec-12] INFO  c.t.quake.interceptor.MyInterceptor - ------preHandle------ 
+2018-09-20 09:37:52 1655 [restartedMain] INFO  com.tortoise.quake.BaseApplication - Starting BaseApplication on cocofe-PC with PID 8720 (C:\workspace\fid-framework\target\classes started by cocofe in C:\workspace\fid-framework) 
+2018-09-20 09:37:52 1657 [restartedMain] INFO  com.tortoise.quake.BaseApplication - The following profiles are active: dev 
+2018-09-20 09:37:53 2465 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 5.3.4.Final 
+2018-09-20 09:37:53 2502 [restartedMain] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@309a3882: startup date [Thu Sep 20 09:37:53 CST 2018]; root of context hierarchy 
+2018-09-20 09:37:55 4219 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode! 
+2018-09-20 09:37:56 5199 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$67c5f93e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying) 
+2018-09-20 09:37:57 6188 [restartedMain] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8080 (http) 
+2018-09-20 09:37:57 6210 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service Tomcat 
+2018-09-20 09:37:57 6212 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.11 
+2018-09-20 09:37:57 6375 [localhost-startStop-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext 
+2018-09-20 09:37:57 6782 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*] 
+2018-09-20 09:37:57 6783 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'xssFilter' to urls: [/*] 
+2018-09-20 09:37:57 6784 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'webStatFilter' to urls: [/*] 
+2018-09-20 09:37:57 6784 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/] 
+2018-09-20 09:37:57 6786 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'statViewServlet' to [/druid/*] 
+2018-09-20 09:38:02 11141 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2018-09-20 09:38:02 11459 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup 
+2018-09-20 09:38:02 11461 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'statFilter' has been autodetected for JMX exposure 
+2018-09-20 09:38:02 11462 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'dataSource' has been autodetected for JMX exposure 
+2018-09-20 09:38:02 11468 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.spring.boot.autoconfigure:name=dataSource,type=DruidDataSourceWrapper] 
+2018-09-20 09:38:02 11472 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Located MBean 'statFilter': registering with JMX server as MBean [com.alibaba.druid.filter.stat:name=statFilter,type=StatFilter] 
+2018-09-20 09:38:02 11495 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2018-09-20 09:38:02 11515 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler [http-nio-8080] 
+2018-09-20 09:38:02 11530 [restartedMain] INFO  o.a.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read 
+2018-09-20 09:38:02 11564 [restartedMain] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8080 (http) 
+2018-09-20 09:38:02 11571 [restartedMain] INFO  com.tortoise.quake.BaseApplication - Started BaseApplication in 11.019 seconds (JVM running for 12.185) 
+2018-09-20 09:38:10 19346 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet' 
+2018-09-20 09:38:10 19452 [http-nio-8080-exec-1] INFO  c.t.quake.interceptor.MyInterceptor - ------preHandle------ 
+2018-09-20 09:38:10 19463 [http-nio-8080-exec-1] INFO  c.t.quake.interceptor.MyInterceptor - ------:跳转到login页面！ 
+2018-09-20 09:38:10 19563 [http-nio-8080-exec-2] INFO  org.thymeleaf.TemplateEngine - [THYMELEAF] INITIALIZING TEMPLATE ENGINE 
+2018-09-20 09:38:10 19663 [http-nio-8080-exec-2] INFO  o.t.t.AbstractTemplateResolver - [THYMELEAF] INITIALIZING TEMPLATE RESOLVER: org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver 
+2018-09-20 09:38:10 19664 [http-nio-8080-exec-2] INFO  o.t.t.AbstractTemplateResolver - [THYMELEAF] TEMPLATE RESOLVER INITIALIZED OK 
+2018-09-20 09:38:10 19666 [http-nio-8080-exec-2] INFO  o.t.m.AbstractMessageResolver - [THYMELEAF] INITIALIZING MESSAGE RESOLVER: org.thymeleaf.spring4.messageresolver.SpringMessageResolver 
+2018-09-20 09:38:10 19666 [http-nio-8080-exec-2] INFO  o.t.m.AbstractMessageResolver - [THYMELEAF] MESSAGE RESOLVER INITIALIZED OK 
+2018-09-20 09:38:10 19681 [http-nio-8080-exec-2] INFO  org.thymeleaf.TemplateEngine.CONFIG - [THYMELEAF] TEMPLATE ENGINE CONFIGURATION:
+[THYMELEAF] * Cache Factory implementation: org.thymeleaf.cache.StandardCacheManager
+[THYMELEAF] * Template modes:
+[THYMELEAF]     * LEGACYHTML5
+[THYMELEAF]     * XHTML
+[THYMELEAF]     * HTML5
+[THYMELEAF]     * VALIDXML
+[THYMELEAF]     * XML
+[THYMELEAF]     * VALIDXHTML
+[THYMELEAF] * Template resolvers (in order):
+[THYMELEAF]     * org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver
+[THYMELEAF] * Message resolvers (in order):
+[THYMELEAF]     * org.thymeleaf.spring4.messageresolver.SpringMessageResolver
+[THYMELEAF] * Dialect [1 of 2]: org.thymeleaf.spring4.dialect.SpringStandardDialect
+[THYMELEAF]     * Prefix: "th"
+[THYMELEAF] * Dialect [2 of 2]: nz.net.ultraq.thymeleaf.LayoutDialect
+[THYMELEAF]     * Prefix: "layout"
+[THYMELEAF] TEMPLATE ENGINE CONFIGURED OK 
+2018-09-20 09:38:10 19682 [http-nio-8080-exec-2] INFO  org.thymeleaf.TemplateEngine - [THYMELEAF] TEMPLATE ENGINE INITIALIZED 
+2018-09-20 09:38:18 27613 [http-nio-8080-exec-3] INFO  c.a.druid.pool.DruidDataSource - {dataSource-1} inited 
+2018-09-20 09:38:18 27919 [http-nio-8080-exec-5] INFO  c.t.quake.interceptor.MyInterceptor - ------preHandle------ 
+2018-09-20 09:38:19 28223 [http-nio-8080-exec-6] INFO  c.t.quake.interceptor.MyInterceptor - ------preHandle------ 
+2018-09-20 09:38:21 30230 [http-nio-8080-exec-7] INFO  c.t.quake.interceptor.MyInterceptor - ------preHandle------ 
+2018-09-20 09:38:21 30452 [http-nio-8080-exec-8] INFO  c.t.quake.interceptor.MyInterceptor - ------preHandle------ 
