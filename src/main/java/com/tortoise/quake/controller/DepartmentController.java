@@ -46,7 +46,7 @@ public class DepartmentController {
 	 * @return
 	 */
 	@ResponseBody
-	@GetMapping("/getAllDepartment")
+	@GetMapping(value = "/getAllDepartment", produces="application/json;charset=UTF-8")
 	public ApiResult getAllDepartment(HttpServletRequest request, HttpServletResponse response){
 		List<Department> departments = mDepartmentService.queryAll();
 		return new ApiResult(ApiResult.SUCCESS, "", departments);

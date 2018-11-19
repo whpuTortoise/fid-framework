@@ -60,7 +60,7 @@ public class AuthorityController {
 	 * @return
 	 */
 	@ResponseBody
-	@PostMapping("/getAuthority")
+	@PostMapping(value = "/getAuthority", produces="application/json;charset=UTF-8")
 	public ApiResult getAuthority(HttpServletRequest request, HttpServletResponse response, String roleId){
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("roleId", roleId);

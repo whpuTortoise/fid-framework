@@ -46,7 +46,7 @@ public class RoleController {
 	 * @return
 	 */
 	@ResponseBody
-	@GetMapping("/getAllRole")
+	@GetMapping(value = "/getAllRole",produces="application/json;charset=UTF-8")
 	public ApiResult getAllRole(HttpServletRequest request, HttpServletResponse response){
 		List<Role> roles = mRoleService.queryAll();
 		return new ApiResult(ApiResult.SUCCESS, "", roles);
