@@ -5,7 +5,7 @@ spring:
         driver-class-name: com.mysql.jdbc.Driver
         url: jdbc:mysql://139.198.14.192:3306/fid?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8
         username: titan
-        password: titan
+        password: titan_qwerty
         
         # 配置Druid的其他参数，以下配置必须增加一个配置文件才能有效
         # 初始化大小，最小，最大
