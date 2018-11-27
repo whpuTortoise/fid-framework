@@ -66,12 +66,13 @@ public class MenuService extends BaseService<Menu, MenuMapper> {
 	public void deleteMenusById(Long id){
 		List<Object> ids = new ArrayList<Object>();
 		
-		List<MenuVo> menus = getMenuTree();
-		for(MenuVo menu : menus){
+		List<Menu> menus = queryAll();
+		for(Menu menu : menus){
 			if(menu.getId() == id){
 				ids.add(id);
-				if(menu.getChildren() != null && menu.getChildren().size() > 0){
-					ids.addAll(getChildIds(menu.getChildren()));
+				List<MenuVo> menuvoChilds = getChildren(menus, id);
+				if(menuvoChilds != null && menuvoChilds.size() > 0){
+					ids.addAll(getChildIds(menuvoChilds));
 				}
 				break;
 			}
