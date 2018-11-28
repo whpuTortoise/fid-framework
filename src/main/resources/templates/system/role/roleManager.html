@@ -21,6 +21,8 @@
 <link th:href="@{/static/css/animate.min.css}" rel="stylesheet" />
 <link th:href="@{/static/css/style.min.css}" rel="stylesheet" />
 
+<link th:href="@{/static/css/plugins/treeview/patternfly-bootstrap-treeview.css}" rel="stylesheet"/>
+
 </head>
 
 <body class="gray-bg">
@@ -83,7 +85,7 @@
 					<h4 class="modal-title" id="modelTitle">窗口标题</h4>
 				</div>
 				<div class="modal-body">
-					<form id="editForm" method="post" class="form-horizontal">
+					<form id="editForm" method="post" class="form-horizontal" >
 						<input type="hidden" class="form-control" name="id" id="id" />
 						<div class="form-group">
 							<label class="col-sm-2 control-label">角色名称</label>
@@ -106,15 +108,52 @@
 							</div>
 						</div>
 					</form>
+			
+		        	 <div class="col-sm-12" id="authorityTree">
+				            <div class="ibox float-e-margins">
+				                <div class="ibox-title">
+				                    <h5>角色管理 >> 权限设置</h5>
+				                </div>
+				                <div class="ibox-content">
+				                    <div class="col-sm-7">
+				                    	<h3>菜单树：</h3>
+				                        <div id="menuTree" class="test"></div>
+				                    </div>
+				                    <div class="col-sm-5">
+				                        <h3>权限编辑：</h3>
+				                        <div>
+				                        	<p>勾选子节点的同时必须勾选父节点才生效</p>
+				                        </div>
+				                        
+				                        <div class="col-md-12">
+										    
+											<div class="panel-body form-group" style="margin-bottom: 0px;">
+												<label class="col-sm-2 control-label" style="text-align: right; margin-top: 5px;width: auto; ">角色：</label>
+												<div class="col-sm-10">
+													<select class="form-control" name="roleId" id="roleId" disabled="disabled">
+										                <option value="1" selected="selected">角色1</option>
+										                <option value="2">角色2</option>
+										                <option value="3">角色3</option>
+										            </select>
+												</div>
+											</div>
+							            </div>
+				                    </div>
+				                    <div class="clearfix"></div>
+				                </div>
+            </div>
+        </div>
 				</div>
 
 				<div class="modal-footer">
-					<button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
 					<button type="button" class="btn btn-primary" id="saveBtn">保存</button>
+					<button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
 				</div>
 			</div>
 		</div>
 	</div>
+	
+
 
 	<script th:src="@{/static/js/jquery.min.js}"></script>
 	<script th:src="@{/static/js/bootstrap.min.js}"></script>
@@ -125,6 +164,8 @@
 	<script th:src="@{/static/js/plugins/bootstrapValidator/bootstrapValidator.min.js}" ></script>
 	<script th:src="@{/static/js/plugins/sweetalert/sweetalert.min.js}"></script>
 	<script th:src="@{/static/js/system/role/roleManager.js}"></script>
+	<script th:src="@{/static/js/plugins/treeview/patternfly-bootstrap-treeview.js}"></script>
+	<script th:src="@{/static/js/system/authority/authorityManager.js}"></script>
 	
 </body>
 
