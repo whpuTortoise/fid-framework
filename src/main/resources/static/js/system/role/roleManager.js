@@ -104,11 +104,18 @@ $(function(){
 	function operateFormatter(value, row, index) {
 		return [
 				'<a class="editItem" href="javascript:void(0)" title="编辑">',
-				'<i class="fa fa-pencil-square-o"></i>',
+				'<button type="button" class="btn btn-primary btn-sm">编辑</button>',
 				'</a>  ',
 				'<a class="removeItem" href="javascript:void(0)" title="删除">',
-				'<i class="glyphicon glyphicon-remove"></i>',
-				'</a>' ].join('');
+				'<button type="button" class="btn btn-danger btn-sm">删除</button>',
+				'</a>' ,
+				'<a class="removeItem" href="javascript:void(0)" title="权限设置">',
+				'<button type="button" class="btn btn-success btn-sm">权限设置</button>',
+				'</a>' ,
+				'<a class="removeItem" href="javascript:void(0)" title="分配用户">',
+				'<button type="button" class="btn btn-warning btn-sm">分配用户</button>',
+				'</a>' 
+				].join('');
 	}
 	
 	//请求服务数据时所传参数
