@@ -8,17 +8,15 @@ $(function(){
 		$('#mytable').bootstrapTable('resetView');
 	})
 	
+	var treeview = null;
+	var roleId = null;
 	//操作栏事件			
 	window.operateEvents = {
 		'click .editItem' : function(e, value, row, index) {
-			$("#authorityTree").hide();
-			$("#editForm").show();
 			$("#id").val(row.id);
 			$("#roleName").val(row.roleName);
 			$("#roleCode").val(row.roleCode);
 			$("#description").val(row.description);
-			
-			$("#modelTitle").html("编辑角色");
 			$('#editModal').modal(); //显示编辑弹窗
 		},
 		'click .removeItem' : function(e, value, row, index) {
@@ -36,10 +34,11 @@ $(function(){
 			});
 		},
 		'click .authorityItem' : function(e, value, row, index) {
-			$("#editForm").hide();
-			$("#authorityTree").show();
-			$("#modelTitle").html("编辑权限");
-			$('#editModal').modal(); //显示编辑弹窗
+			roleId = row.id
+			$("#roleShowName").val(row.roleName);
+			initTreeview();
+			$('#authorityModal').modal(); //显示编辑弹窗
+			
 		}
 	};
 	
@@ -188,23 +187,6 @@ $(function(){
 		}
 	});
 	
-	//保存按钮事件
-	$('#saveBtn').click(function() {
-		//点击保存时触发表单验证
-		$('#editForm').bootstrapValidator('validate');
-	    //如果表单验证正确，则请求后台保存用户
-		if($("#editForm").data('bootstrapValidator').isValid()){
-    	   $.post("/role/saveRole", $('#editForm').serialize(), function(data) {
-    		   if(data && data.state == 1) { //后台返回添加成功
-					//关闭弹窗
-					$('#editModal').modal('hide');
-					
-					//刷新列表
-					initTable();
-				}
-			})
-		}
-	});
 	
 	//弹窗关闭监听
 	$("#editModal").on("hide.bs.modal",function(){
@@ -241,5 +223,124 @@ $(function(){
 			}
 		}
 	});
+	
+	
+    
+    
+
+    
+	//保存按钮事件
+	$('#saveRoleBtn').click(function() {
+		
+			//点击保存时触发表单验证
+			$('#editForm').bootstrapValidator('validate');
+		    //如果表单验证正确，则请求后台保存用户
+			if($("#editForm").data('bootstrapValidator').isValid()){
+	    	   $.post("/role/saveRole", $('#editForm').serialize(), function(data) {
+	    		   if(data && data.state == 1) { //后台返回添加成功
+						//关闭弹窗
+						$('#editModal').modal('hide');
+						
+						//刷新列表
+						initTable();
+					}
+				})
+			}
+	
+		
+	});
+	
+	    //构建树结构
+		function buildDomTree(menus) {
+	        var data = [];
+
+	        function walk(nodes, data) {
+	        	if (!nodes) { return; }
+	        	$.each(nodes, function (id, node) {
+	        		var obj = {
+	        			id: node.id,
+	        			text: node.menuName,
+	        			icon: node.menuIcon
+		            };
+		            if (node.children && node.children.length > 0) {
+		            	obj.nodes = [];
+		            	walk(node.children, obj.nodes);
+		            }
+		            data.push(obj);
+	        	});
+	        }
+
+	        walk(menus, data);
+	        return data;
+		}
+	    
+	    //初始化菜单树
+	    function initTreeview(){
+	    	$.post("/menu/getMenuTree", {}, function(data) {
+	    		if(data && data.state == 1) {
+	    			var menus = data.datas;
+	    			
+	    			treeview = $("#menuTree").treeview({
+	    		    	showIcon: false,
+	    		    	showCheckbox: true,
+	    		        color: "#428bca",
+	    		        highlightSelected: false,
+	    		        expandIcon: "glyphicon glyphicon-chevron-right",
+	    		        collapseIcon: "glyphicon glyphicon-chevron-down",
+	    		        nodeIcon: "glyphicon glyphicon-bookmark",
+	    		        data: buildDomTree(menus),
+	    		        state: {
+	    		        	checked: true
+	    		        }
+	    		    });
+	    			
+	    			initChecked();
+	    		}
+	    	})
+	    }
+	    
+	    
+	    //初始化选中的菜单
+	    function initChecked(){
+	    	$('#menuTree li').removeClass("node-checked");
+	    	$('#menuTree .check-icon').removeClass("glyphicon-check");
+	    	$('#menuTree .check-icon').removeClass("glyphicon-unchecked").addClass("glyphicon-unchecked");
+	    	
+	    	$.post("/authority/getAuthority", {'roleId': roleId}, function(data) {
+	    		if(data && data.state == 1) {
+	    			var menus = data.datas;
+	    			//选中
+	    			for(var i = 0; i< menus.length; i++){
+	    				$("#"+menus[i].menuId).removeClass("node-checked").addClass("node-checked");
+	    				$("#"+menus[i].menuId+" .check-icon").removeClass("glyphicon-unchecked").addClass("glyphicon-check");
+	    			}
+	    		}
+	    	})
+	    }
+	    
+	    
+	    
+
+	    
+		//保存按钮事件
+		$('#saveAuthorityBtn').click(function() {
+			
+			var menuIds = "";
+			var nodesEle = $('#menuTree').find(".node-checked");
+			for(var i=0; i<nodesEle.length; i++){
+				if(menuIds == ""){
+					menuIds = nodesEle.eq(i).attr("id");
+				}else{
+					menuIds += ","+nodesEle.eq(i).attr("id");
+				}
+			}
+
+			
+			$.post("/authority/saveAuthority", {'roleId': roleId, 'menuIds': menuIds}, function(data) {
+			   if(data && data.state == 1) { //后台返回添加成功
+				   swal("保存成功", "", "success");
+				}
+			})
+		});
 
 });
