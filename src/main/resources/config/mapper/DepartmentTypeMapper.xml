@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tortoise.quake.dao.DepartmentTypeMapper">
+
+	<resultMap id="BaseResultMap" type="com.tortoise.quake.model.DepartmentType">
+		<id column="id" property="id" jdbcType="BIGINT" />
+		<result column="type_code" property="typeCode" jdbcType="VARCHAR" />
+		<result column="type_name" property="typeName" jdbcType="VARCHAR" />
+	</resultMap>
+
+	<sql id="Base_Column_List">
+		id,type_code,type_name
+	</sql>
+
+	<sql id="Alias_Column_List">
+		t.id,t.type_code,t.type_name
+	</sql>
+
+	<sql id="Base_Condition">
+		<where>
+		   <if test="typeCode != null">and t.type_code = #{typeCode,jdbcType=VARCHAR}</if>
+		   <if test="typeName != null">and t.type_name = #{typeName,jdbcType=VARCHAR}</if>
+		</where>
+	</sql>
+
+	<!-- 通过复合条件查询 -->
+	<select id="select" resultMap="BaseResultMap" parameterType="java.util.HashMap">
+		select
+		<include refid="Alias_Column_List" />
+		from sys_department_type t
+		<include refid="Base_Condition" />
+	</select>
+
+	<!-- 统计 -->
+	<select id="count" resultType="java.lang.Integer" parameterType="java.util.HashMap">
+		select count(0)
+		from sys_department_type t
+		<include refid="Base_Condition" />
+	</select>
+
+	<!-- 通过主键查询对象 -->
+	<select id="selectById" resultMap="BaseResultMap" parameterType="java.lang.Long">
+		select
+		<include refid="Base_Column_List" />
+		from sys_department_type
+		where id = #{id,jdbcType=BIGINT}
+	</select>
+
+	<!-- 通过主键删除对象 -->
+	<delete id="deleteById" parameterType="java.lang.Long">
+		delete from sys_department_type
+		where id = #{id,jdbcType=BIGINT}
+	</delete>
+
+	<!-- 新增对象(所有字段) -->
+	<insert id="insertAllField" parameterType="com.tortoise.quake.model.DepartmentType">
+		<selectKey resultType="java.lang.Long" order="AFTER" keyProperty="id">
+			SELECT LAST_INSERT_ID() AS id
+		</selectKey>
+
+		insert into sys_department_type(
+			<include refid="Base_Column_List" />
+		)
+		values(
+			#{id,jdbcType=BIGINT},
+			#{typeCode,jdbcType=VARCHAR},
+			#{typeName,jdbcType=VARCHAR}
+		)
+	</insert>
+
+	<!-- 新增对象(部分字段) -->
+	<insert id="insert" parameterType="com.tortoise.quake.model.DepartmentType">
+		<selectKey resultType="java.lang.Long" order="AFTER" keyProperty="id">
+			SELECT LAST_INSERT_ID() AS id
+		</selectKey>
+
+		insert into sys_department_type
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">id,</if>
+			<if test="typeCode != null">type_code,</if>
+			<if test="typeName != null">type_name,</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">id,</if>
+			<if test="typeCode != null">#{typeCode,jdbcType=VARCHAR},</if>
+			<if test="typeName != null">#{typeName,jdbcType=VARCHAR},</if>
+		</trim>
+	</insert>
+
+	<!-- 修改对象 (部分字段)-->
+	<update id="update" parameterType="com.tortoise.quake.model.DepartmentType">
+		update sys_department_type
+		<set>
+			<if test="typeCode != null">type_code = #{typeCode,jdbcType=VARCHAR},</if>
+			<if test="typeName != null">type_name = #{typeName,jdbcType=VARCHAR},</if>
+		</set>
+		where id = #{id,jdbcType=BIGINT}
+	</update>
+
+	<!-- 修改对象(所有字段) -->
+	<update id="updateAllField" parameterType="com.tortoise.quake.model.DepartmentType">
+		update sys_department_type
+		set
+			type_code = #{typeCode,jdbcType=VARCHAR},
+			type_name = #{typeName,jdbcType=VARCHAR},
+		where id = #{id,jdbcType=BIGINT}
+	</update>
+
+	<!-- 批量插入(所有字段) -->
+	<insert id="batchInsert" parameterType="java.util.List">
+		insert into sys_department_type(
+			<include refid="Base_Column_List" />
+		)
+		values
+		<foreach collection="list" index="index" item="item" separator=",">
+		(
+			#{item.id}
+			<choose><when test="item.typeCode != null">,#{item.typeCode}</when><otherwise>,default</otherwise></choose>
+			<choose><when test="item.typeName != null">,#{item.typeName}</when><otherwise>,default</otherwise></choose>
+			
+		)
+		</foreach>
+	</insert>
+
+	<!-- 批量插入或更新(所有字段) -->
+	<update id="batchInsertOrUpdate" parameterType="java.util.List">
+		insert into sys_department_type(
+			<include refid="Base_Column_List" />
+		)
+		values
+		<foreach collection="list" index="index" item="item" separator=",">
+		(
+			#{item.id}
+			<choose><when test="item.typeCode != null">,#{item.typeCode}</when><otherwise>,default</otherwise></choose>
+			<choose><when test="item.typeName != null">,#{item.typeName}</when><otherwise>,default</otherwise></choose>
+		)
+		</foreach>
+		on duplicate key update type_code = values(type_code), type_name = values(type_name)
+	</update>
+
+	<!-- 批量删除 -->
+	<delete id="batchDelete" parameterType="java.util.List">
+		delete from sys_department_type where id in 
+		<foreach collection="list" index="index" item="item" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+	</delete>
+
+	<!-- 自定义 -->
+</mapper>
