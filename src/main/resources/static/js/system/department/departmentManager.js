@@ -1,5 +1,5 @@
 /**
- * 部门管理
+ * 机构管理
  */
 $(function(){
 	
@@ -15,7 +15,7 @@ $(function(){
 			$("#departmentName").val(row.departmentName);
 			$("#departmentCode").val(row.departmentCode);
 			
-			$("#modelTitle").html("编辑部门");
+			$("#modelTitle").html("编辑机构");
 			$('#editModal').modal(); //显示编辑弹窗
 		},
 		'click .removeItem' : function(e, value, row, index) {
@@ -67,13 +67,24 @@ $(function(){
 					},
 					{
 						align : 'center',
-						title : '部门名称',
+						title : '机构名称',
 						field : 'departmentName'
 					},
 					{
 						align : 'center',
-						title : '部门编码',
+						title : '机构编码',
 						field : 'departmentCode'
+					},
+					{
+						align : 'center',
+						title : '机构类型',
+						field : 'departmentType',
+						formatter : typeFormatter
+					},
+					{
+						align : 'center',
+						title : '机构级别',
+						field : 'level'
 					},
 					{
 						align : 'center',
@@ -105,6 +116,14 @@ $(function(){
 				'</a>' ].join('');
 	}
 	
+	 function typeFormatter(value) {
+         if (value == 0) { show = '总部'; }
+         else if (value == 1) { show = '部门'; }
+         else if (value == 2) { show = '支行'; }
+
+         return '<div >' + show + '</div>';
+     }
+	 
 	//请求服务数据时所传参数
 	function queryParams(params) {
 		var formData = $("#queryForm").serializeArray();//把form里面的数据序列化成数组
@@ -207,14 +226,21 @@ $(function(){
 			departmentName: {
 				validators: {
 					notEmpty: {
-                       message: '部门名称不能为空'
+                       message: '机构名称不能为空'
 					}
 				}
 			},
 			departmentCode: {
 				validators: {
 					notEmpty: {
-                       message: '部门编码不能为空'
+                       message: '机构编码不能为空'
+					}
+				}
+			},
+			departmentType: {
+				validators: {
+					notEmpty: {
+                       message: '机构类型不能为空'
 					}
 				}
 			}

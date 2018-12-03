@@ -6,6 +6,7 @@
 		<id column="id" property="id" jdbcType="BIGINT" />
 		<result column="department_name" property="departmentName" jdbcType="VARCHAR" />
 		<result column="department_code" property="departmentCode" jdbcType="VARCHAR" />
+		<result column="department_type" property="departmentType" jdbcType="TINYINT" />
 		<result column="level" property="level" jdbcType="TINYINT" />
 		<result column="pid" property="pid" jdbcType="BIGINT" />
 		<result column="create_id" property="createId" jdbcType="VARCHAR" />
@@ -16,11 +17,11 @@
 	</resultMap>
 
 	<sql id="Base_Column_List">
-		id,department_name,department_code,level,pid,create_id,create_time,update_id,update_time,is_deleted
+		id,department_name,department_code,department_type,level,pid,create_id,create_time,update_id,update_time,is_deleted
 	</sql>
 
 	<sql id="Alias_Column_List">
-		t.id,t.department_name,t.department_code,t.level,t.pid,t.create_id,t.create_time,t.update_id,t.update_time,t.is_deleted
+		t.id,t.department_name,t.department_code,t.department_type,t.level,t.pid,t.create_id,t.create_time,t.update_id,t.update_time,t.is_deleted
 	</sql>
 
 	<sql id="Base_Condition">
@@ -74,6 +75,7 @@
 			#{id,jdbcType=BIGINT},
 			#{departmentName,jdbcType=VARCHAR},
 			#{departmentCode,jdbcType=VARCHAR},
+			#{departmentType,jdbcType=TINYINT},
 			#{level,jdbcType=TINYINT},
 			#{pid,jdbcType=BIGINT},
 			#{createId,jdbcType=VARCHAR},
@@ -95,6 +97,7 @@
 			<if test="id != null">id,</if>
 			<if test="departmentName != null">department_name,</if>
 			<if test="departmentCode != null">department_code,</if>
+			<if test="departmentType != null">department_type,</if>
 			<if test="level != null">level,</if>
 			<if test="pid != null">pid,</if>
 			<if test="createId != null">create_id,</if>
@@ -107,6 +110,7 @@
 			<if test="id != null">id,</if>
 			<if test="departmentName != null">#{departmentName,jdbcType=VARCHAR},</if>
 			<if test="departmentCode != null">#{departmentCode,jdbcType=VARCHAR},</if>
+			<if test="departmentType != null">#{departmentType,jdbcType=TINYINT},</if>
 			<if test="level != null">#{level,jdbcType=TINYINT},</if>
 			<if test="pid != null">#{pid,jdbcType=BIGINT},</if>
 			<if test="createId != null">#{createId,jdbcType=VARCHAR},</if>
@@ -123,6 +127,7 @@
 		<set>
 			<if test="departmentName != null">role_name = #{departmentName,jdbcType=VARCHAR},</if>
 			<if test="departmentCode != null">role_code = #{departmentCode,jdbcType=VARCHAR},</if>
+			<if test="departmentType != null">type = #{departmentType,jdbcType=TINYINT},</if>
 			<if test="level != null">level = #{level,jdbcType=TINYINT},</if>
 			<if test="pid != null">pid = #{pid,jdbcType=BIGINT},</if>
 			<if test="createId != null">create_id = #{createId,jdbcType=VARCHAR},</if>
@@ -140,6 +145,7 @@
 		set
 			department_name = #{departmentName,jdbcType=VARCHAR},
 			department_code = #{departmentCode,jdbcType=VARCHAR},
+			department_type = #{departmentType,jdbcType=TINYINT},
 			level = #{level,jdbcType=TINYINT},
 			pid = #{pid,jdbcType=BIGINT},
 			create_id = #{createId,jdbcType=VARCHAR},			create_time = #{createTime,jdbcType=TIMESTAMP},
@@ -160,6 +166,7 @@
 			#{item.id}
 			<choose><when test="item.departmentName != null">,#{item.departmentName}</when><otherwise>,default</otherwise></choose>
 			<choose><when test="item.departmentCode != null">,#{item.departmentCode}</when><otherwise>,default</otherwise></choose>
+			<choose><when test="item.departmentType != null">,#{item.departmentType}</when><otherwise>,default</otherwise></choose>
 			<choose><when test="item.level != null">,#{item.level}</when><otherwise>,default</otherwise></choose>
 			<choose><when test="item.pid != null">,#{item.pid}</when><otherwise>,default</otherwise></choose>
 			<choose><when test="item.createId != null">,#{item.createId}</when><otherwise>,default</otherwise></choose>
@@ -182,6 +189,7 @@
 			#{item.id}
 			<choose><when test="item.departmentName != null">,#{item.departmentName}</when><otherwise>,default</otherwise></choose>
 			<choose><when test="item.departmentCode != null">,#{item.departmentCode}</when><otherwise>,default</otherwise></choose>
+			<choose><when test="item.departmentType != null">,#{item.departmentType}</when><otherwise>,default</otherwise></choose>
 			<choose><when test="item.level != null">,#{item.level}</when><otherwise>,default</otherwise></choose>
 			<choose><when test="item.pid != null">,#{item.pid}</when><otherwise>,default</otherwise></choose>
 			<choose><when test="item.createId != null">,#{item.createId}</when><otherwise>,default</otherwise></choose>
@@ -191,7 +199,7 @@
 			<choose><when test="item.isDeleted != null">,#{item.isDeleted}</when><otherwise>,default</otherwise></choose>
 		)
 		</foreach>
-		on duplicate key update department_name = values(department_name), department_code = values(department_code), level=values(level), pid=values(pid), create_id = values(create_id), create_time = values(create_time), update_id = values(update_id), update_time = values(update_time), is_deleted = values(is_deleted)
+		on duplicate key update department_name = values(department_name), department_code = values(department_code),department_type=values(department_type), level=values(level), pid=values(pid), create_id = values(create_id), create_time = values(create_time), update_id = values(update_id), update_time = values(update_time), is_deleted = values(is_deleted)
 	</update>
 
 	<!-- 批量删除 -->
