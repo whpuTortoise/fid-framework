@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.tortoise.framework.dto.ApiResult;
 import com.tortoise.framework.util.JsonUtil;
 import com.tortoise.quake.model.DepartmentType;
+import com.tortoise.quake.model.Role;
 import com.tortoise.quake.service.DepartmentTypeService;
 import com.tortoise.quake.vo.page.DepartmentTypePageReqVo;
 import com.tortoise.quake.vo.page.PageRespVo;
@@ -49,6 +50,21 @@ public class DepartmentTypeController {
 	public String manager(Model model) {
 		return "system/departmentType/departmentTypeManager";
 	}
+	
+	
+	/**
+	 * 获取所有机构类型
+	 * @param request
+	 * @param response
+	 * @return
+	 */
+	@ResponseBody
+	@GetMapping(value = "/getAllDepartmentType",produces="application/json;charset=UTF-8")
+	public ApiResult getAllDepartmentType(HttpServletRequest request, HttpServletResponse response){
+		List<DepartmentType> types = mDepartmentTypeService.queryAll();
+		return new ApiResult(ApiResult.SUCCESS, "", types);
+	}
+	
 	
 	/**
 	 * 

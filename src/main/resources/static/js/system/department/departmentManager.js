@@ -2,7 +2,7 @@
  * 机构管理
  */
 $(function(){
-	
+	var departmentTypes = null;
 	//根据窗口尺寸调整表格
 	$(window).resize(function() {
 		$('#mytable').bootstrapTable('resetView');
@@ -14,7 +14,7 @@ $(function(){
 			$("#id").val(row.id);
 			$("#departmentName").val(row.departmentName);
 			$("#departmentCode").val(row.departmentCode);
-			
+			$("#departmentType").val(row.departmentType);
 			$("#modelTitle").html("编辑机构");
 			$('#editModal').modal(); //显示编辑弹窗
 		},
@@ -34,8 +34,29 @@ $(function(){
 		}
 	};
 	
+	
+  
+  //初始化机构类型
+	initDepartmentType();
 	//初始化列表
 	initTable();
+	
+	
+	 //初始化机构类型
+    function initDepartmentType(){
+    	$.get("/departmentType/getAllDepartmentType", function(data){
+    		if(data && data.state == 1) {
+    			departmentTypes = data.datas;
+    			var htmlStr = "";
+    			for(var i=0; i<departmentTypes.length; i++){
+    				htmlStr += "<option value='"+departmentTypes[i].typeCode+"'>"+departmentTypes[i].typeName+"</option>";
+    			}
+    			
+    			$("#departmentType").html(htmlStr);
+    			
+    		}
+    	});
+    }
 	
 	//初始化表格
 	function initTable() {
@@ -117,11 +138,12 @@ $(function(){
 	}
 	
 	 function typeFormatter(value) {
-         if (value == 0) { show = '总部'; }
-         else if (value == 1) { show = '部门'; }
-         else if (value == 2) { show = '支行'; }
-
-         return '<div >' + show + '</div>';
+		for(var i=0; i<departmentTypes.length; i++){
+			if(value == departmentTypes[i].typeCode){
+				return '<div >' + departmentTypes[i].typeName + '</div>';
+			}
+		}
+		return '<div >不存在的机构类型</div>';
      }
 	 
 	//请求服务数据时所传参数
