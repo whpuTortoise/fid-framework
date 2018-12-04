@@ -71,7 +71,7 @@ $(function() {
 		var node = getSelectNode();
 		if(node == null){ //新增根节点
 			$("#pid").val(0);
-			$("#level").val(0);
+			$("#level").val(1);
 			$("#pmenuName").val('无');
 			$('#editModal').modal();
 		}else{ //新增子节点
@@ -79,7 +79,7 @@ $(function() {
 				swal("最大只支持三级节点", "", "error");
 			}else{
 				$("#pid").val(node.id);
-				$("#level").val(node.level);
+				$("#level").val(node.level+1);
 				$("#pmenuName").val(node.menuName);
 				$('#editModal').modal();
 			}

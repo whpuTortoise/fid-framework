@@ -20,9 +20,9 @@ public class Department implements Serializable {
     private String departmentCode;
     
     /**
-     * 机构类型
+     * 机构类型ID
      */
-    private Integer departmentType;
+    private Long departmentTypeId;
     /**
      * 机构级别
      */
@@ -85,15 +85,12 @@ public class Department implements Serializable {
 		this.departmentCode = departmentCode;
 	}
 
-	
-	
-
-	public Integer getDepartmentType() {
-		return departmentType;
+	public Long getDepartmentTypeId() {
+		return departmentTypeId;
 	}
 
-	public void setDepartmentType(Integer departmentType) {
-		this.departmentType = departmentType;
+	public void setDepartmentTypeId(Long departmentTypeId) {
+		this.departmentTypeId = departmentTypeId;
 	}
 
 	public Integer getLevel() {

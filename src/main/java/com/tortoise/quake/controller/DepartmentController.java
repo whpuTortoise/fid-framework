@@ -21,6 +21,7 @@ import com.tortoise.framework.util.JsonUtil;
 import com.tortoise.quake.model.Department;
 import com.tortoise.quake.service.DepartmentService;
 import com.tortoise.quake.vo.page.PageRespVo;
+import com.tortoise.quake.vo.DepartmentVo;
 import com.tortoise.quake.vo.page.DepartmentPageReqVo;
 
 @RequestMapping("/department")
@@ -37,6 +38,24 @@ public class DepartmentController {
 	@GetMapping("/manager")
 	public String manager(Model model) {
 		return "system/department/departmentManager";
+	}
+	
+	/**
+	 * 获取完整的机构树
+	 * @param request
+	 * @param response
+	 * @return
+	 */
+	@ResponseBody
+	@PostMapping("/getDepartmentTree")
+	public ApiResult getDepartmentTree(HttpServletRequest request, HttpServletResponse response) {
+		try {
+			List<DepartmentVo> departments = mDepartmentService.getDepartmentTree();
+			return new ApiResult(ApiResult.SUCCESS, "成功！", departments);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return new ApiResult(ApiResult.FAILURE, "失败！", null);
 	}
 	
 	/**
@@ -117,9 +136,9 @@ public class DepartmentController {
 	 */
 	@ResponseBody
 	@PostMapping("/deleteDepartments")
-	public ApiResult deleteRoles(HttpServletRequest request, HttpServletResponse response, String ids) {
+	public ApiResult deleteDepartments(HttpServletRequest request, HttpServletResponse response, Long id) {
 		try {
-			mDepartmentService.batchDelete(ids.split(","), String.class);
+			mDepartmentService.deleteDepartmentsById(id);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return new ApiResult(ApiResult.FAILURE, "删除失败！", null);

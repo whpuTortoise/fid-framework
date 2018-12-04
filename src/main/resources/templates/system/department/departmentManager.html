@@ -3,80 +3,71 @@
 
 <head>
 
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-<title>机构管理</title>
-<meta name="keywords" content="" />
-<meta name="description" content="" />
+    <title>机构管理</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
 
-<link rel="shortcut icon" href="favicon.ico" />
-<link th:href="@{/static/css/bootstrap.min.css}" rel="stylesheet" />
-<link th:href="@{/static/css/font-awesome.min.css}" rel="stylesheet" />
+    <link rel="shortcut icon" href="favicon.ico"/> 
+    <link th:href="@{/static/css/bootstrap.min.css}" rel="stylesheet" />
+	<link th:href="@{/static/css/font-awesome.min.css}" rel="stylesheet" />
+	
+	<link th:href="@{/static/css/plugins/treeview/patternfly-bootstrap-treeview.css}" rel="stylesheet"/>
+	<link th:href="@{/static/css/plugins/sweetalert/sweetalert.css}" rel="stylesheet" />
+	<link th:href="@{/static/css/plugins/bootstrapValidator/bootstrapValidator.min.css}"  rel="stylesheet" />
 
-<link th:href="@{/static/css/plugins/bootstrap-table/bootstrap-table.min.css}" rel="stylesheet" />
-<link th:href="@{/static/css/plugins/sweetalert/sweetalert.css}" rel="stylesheet" />
-<link th:href="@{/static/css/plugins/bootstrapValidator/bootstrapValidator.min.css}"  rel="stylesheet" />
-
-<link th:href="@{/static/css/animate.min.css}" rel="stylesheet" />
-<link th:href="@{/static/css/style.min.css}" rel="stylesheet" />
-
+    <link th:href="@{/static/css/animate.min.css}" rel="stylesheet"/>
+    <link th:href="@{/static/css/style.min.css?v=4.0.0}" rel="stylesheet"/>
+    
 </head>
 
 <body class="gray-bg">
-	<div class="wrapper wrapper-content animated fadeInRight">
-		<div class="row">
-			<div class="col-sm-12">
-				<div class="ibox float-e-margins">
-					<div class="ibox-title">
-						<form id="queryForm" role="form" class="m-t">
-							<div class="panel panel-default">
-								<div class="panel-heading">查询条件</div>
-								<div class="panel-body form-group" style="margin-bottom: 0px;">
-									<label class="col-sm-1 control-label" style="text-align: right; margin-top: 5px; width: 95px">机构名称：</label>
-									<div class="col-sm-2">
-										<input type="text" class="form-control" name="searchDepartmentName" id="searchDepartmentName" />
-									</div>
-									<label class="col-sm-1 control-label" style="text-align: right; margin-top: 5px; width: 95px">机构编码：</label>
-									<div class="col-sm-2">
-										<input type="text" class="form-control" name="searchDepartmentCode" id="searchDepartmentCode" />
-									</div>
-									<div class="col-sm-1">
-										<button class="btn btn-primary" id="search_btn" type="button">
-											<i class="fa fa-search"></i> 查询
-										</button>
-									</div>
-									<div class="col-sm-1">
-										<button class="btn btn-white reset" type="reset">
-											<i class="fa fa-refresh"></i> 重置
-										</button>
-									</div>
-								</div>
-							</div>
-						</form>
-					</div>
-
-					<div class="ibox-content">
-						<table id="mytable" class="table table-hover"></table>
-
-						<div id="toolbar" class="btn-group pull-right">
-							<button id="btn_add" type="button" class="btn btn-primary" style="margin-right: 2px;">
+    <div class="row wrapper wrapper-content animated fadeInRight">
+        
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>组织管理 >> 机构管理</h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="col-sm-5">
+                    	<h3>机构树：</h3>
+                        <div id="departmentTree" class="test"></div>
+                    </div>
+                    <div class="col-sm-7">
+                        <h3>机构编辑：</h3>
+                        <div>
+                        	<p>新增：默认新建一级节点，如果有选中的节点则新建其子节点。</p>
+                        	<p>修改：修改选中的节点。</p>
+                        	<p>删除：删除选中的节点及其子节点。</p>
+                        	<br/>
+                        	<p style="font-size: large;font-style: italic;">选中的节点：<font id="event_output" style="color: red;">无</font></p>
+                        	<p style="font-size: large;font-style: italic;">机构编码：<font id="event_code" style="color: red;">无</font></p>
+                        	<p style="font-size: large;font-style: italic;">机构类型：<font id="event_type" style="color: red;">无</font></p>
+                        </div>
+                        
+                        <div class="col-md-12">
+                        	<button id="btn_add" type="button" class="btn btn-primary" style="margin-right: 2px;">
 								<i class="fa fa-plus"></i> 新增
 							</button>
+							<button id="btn_update" type="button" class="btn btn-primary" style="margin-right: 2px;">
+								<i class="fa fa-pencil-square-o"></i> 编辑
+							</button>
 							<button id="btn_delete" type="button" class="btn btn-primary" style="margin-right: 2px;">
-								<i class="fa fa-remove"></i> 批量删除
+								<i class="fa fa-remove"></i> 删除
 							</button>
-							<button id="btn_export" type="button" class="btn btn-primary">
-								<i class="fa fa-sign-in"></i> 导出
-							</button>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<!-- 新增和修改信息的弹窗 -->
+			            </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
+    <!-- 新增和修改信息的弹窗 -->
 	<div class="modal inmodal fade" id="editModal" tabindex="-1" role="dialog" aria-hidden="true">
 		<div class="modal-dialog modal-lg">
 			<div class="modal-content">
@@ -89,6 +80,15 @@
 				<div class="modal-body">
 					<form id="editForm" method="post" class="form-horizontal">
 						<input type="hidden" class="form-control" name="id" id="id" />
+						<input type="hidden" class="form-control" name="pid" id="pid" value="0"/>
+						<input type="hidden" class="form-control" name="level" id="level" value="0"/>
+						<div class="form-group pdepartmentDiv">
+							<label class="col-sm-2 control-label">父机构名称</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" name="pdepartmentName" id="pdepartmentName" readonly="readonly" value="无"/>
+							</div>
+						</div>
+						<div class="hr-line-dashed pdepartmentDiv"></div>
 						<div class="form-group">
 							<label class="col-sm-2 control-label">机构名称</label>
 							<div class="col-sm-10">
@@ -106,10 +106,7 @@
 						<div class="form-group">
 							<label class="col-sm-2 control-label">机构类型</label>
 							<div class="col-sm-10">
-								<select class="form-control" name="departmentType" id="departmentType">
-					                <option value="1" selected="selected">角色1</option>
-					                <option value="2">角色2</option>
-					                <option value="3">角色3</option>
+								<select class="form-control" name="departmentTypeId" id="departmentTypeId">
 								</select>
 							</div>
 						</div>
@@ -117,23 +114,22 @@
 				</div>
 
 				<div class="modal-footer">
-					<button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
 					<button type="button" class="btn btn-primary" id="saveBtn">保存</button>
+					<button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
 				</div>
 			</div>
 		</div>
 	</div>
-
-	<script th:src="@{/static/js/jquery.min.js}"></script>
+    
+    
+    <script th:src="@{/static/js/jquery.min.js}"></script>
 	<script th:src="@{/static/js/bootstrap.min.js}"></script>
 	<script th:src="@{/static/js/content.min.js}"></script>
 	
-	<script th:src="@{/static/js/plugins/bootstrap-table/bootstrap-table.min.js}"></script>
-	<script th:src="@{/static/js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js}"></script>
 	<script th:src="@{/static/js/plugins/bootstrapValidator/bootstrapValidator.min.js}" ></script>
 	<script th:src="@{/static/js/plugins/sweetalert/sweetalert.min.js}"></script>
-	<script th:src="@{/static/js/system/department/departmentManager.js}"></script>
-	
+	<script th:src="@{/static/js/plugins/treeview/patternfly-bootstrap-treeview.js}"></script>
+    <script th:src="@{/static/js/system/department/departmentManager.js}"></script>
 </body>
 
 </html>
