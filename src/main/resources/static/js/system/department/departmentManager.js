@@ -35,7 +35,7 @@ $(function() {
         	$.each(nodes, function (id, node) {
         		var obj = {
         			text: node.departmentName,
-        			icon: "fa fa-columns",
+        			icon: "fa fa-bank",
         			nodev: node
 	            };
 	            if (node.children && node.children.length > 0) {
