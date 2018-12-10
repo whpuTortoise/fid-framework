@@ -5,6 +5,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 2018-12-10 19:41:01 1026 [restartedMain] INFO  com.tortoise.quake.BaseApplication - Starting BaseApplication on MS-20171023LRCA with PID 2196 (D:\workspace\fid-framework\target\classes started by Administrator in D:\workspace\fid-framework) 
 2018-12-10 19:41:01 1034 [restartedMain] INFO  com.tortoise.quake.BaseApplication - The following profiles are active: dev 
 2018-12-10 19:41:02 1478 [restartedMain] INFO  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@e943ff8: startup date [Mon Dec 10 19:41:02 GMT+08:00 2018]; root of context hierarchy 
@@ -5885,6 +5886,8 @@ Error starting ApplicationContext. To display the conditions report re-run your 
 >>>>>>> parent of 3e1add0... 权限菜单
 =======
 >>>>>>> parent of 3e1add0... 权限菜单
+=======
+>>>>>>> parent of 3e1add0... 权限菜单
 2018-11-16 10:45:35 2921 [main] INFO  com.tortoise.quake.BaseApplication - Starting BaseApplication on cocofe-PC with PID 4472 (C:\workspace\fid-framework\target\classes started by cocofe in C:\workspace\fid-framework) 
 2018-11-16 10:45:35 2972 [main] INFO  com.tortoise.quake.BaseApplication - The following profiles are active: dev 
 2018-11-16 10:45:36 3719 [main] INFO  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@6622fc65: startup date [Fri Nov 16 10:45:36 CST 2018]; root of context hierarchy 
@@ -8621,6 +8624,9 @@ Error starting ApplicationContext. To display the conditions report re-run your 
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of 3e1add0... 权限菜单
+=======
 >>>>>>> parent of 3e1add0... 权限菜单
 =======
 >>>>>>> parent of 3e1add0... 权限菜单
