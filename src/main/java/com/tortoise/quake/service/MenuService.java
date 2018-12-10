@@ -10,59 +10,14 @@ import org.springframework.stereotype.Service;
 import com.tortoise.framework.service.BaseService;
 import com.tortoise.quake.dao.MenuMapper;
 import com.tortoise.quake.model.Menu;
-import com.tortoise.quake.model.User;
-import com.tortoise.quake.model.UserRoleEntity;
 import com.tortoise.quake.vo.MenuVo;
 
 @Service
 public class MenuService extends BaseService<Menu, MenuMapper> {
 
 	@Autowired
-	private UserRoleService userRoleService;
-	
-	@Autowired
-	private AuthorityService authorityService;
-	
-	
-	
-	@Autowired
 	public void setMapper(MenuMapper mapper) {
 		this.mapper = mapper;
-	}
-	
-	/**
-	 * 获取完整的菜单树
-	 * @return
-	 */
-	public List<MenuVo> getMyMenuTree(User currentUser){
-		UserRoleEntity userRole = new UserRoleEntity();
-		userRole.setUserId(currentUser.getId());
-		List<UserRoleEntity> userRoles = userRoleService.queryList(userRole);
-		if(userRoles != null && userRoles.size() > 0) {
-			List<Long> roleIds = new ArrayList<>();
-			for(UserRoleEntity entity : userRoles) {
-				roleIds.add(entity.getRoleId());
-			}
-			List<Menu> menus = authorityService.getMenusByRoles(roleIds);
-			
-			if(menus != null && menus.size() > 0) {
-				List<MenuVo> menuVos = new ArrayList<MenuVo>();
-				for(Menu menu : menus){
-					if(menu.getPid() == 0){
-						MenuVo menuVo = new MenuVo();
-						BeanUtils.copyProperties(menu, menuVo);
-						menuVo.setChildren(getChildren(menus, menuVo.getId()));
-						menuVos.add(menuVo);
-					}
-				}
-				
-				return menuVos;
-			}
-			
-		}
-		
-		return null;
-		
 	}
 	
 	/**
