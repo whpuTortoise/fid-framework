@@ -154,4 +154,13 @@
 		where role_id = #{roleId,jdbcType=BIGINT}
 	</delete>
 	
+	<!-- 根据角色ID获取菜单权限列表 -->
+	<select id="getMenusByRoles" resultType="com.tortoise.quake.model.Menu" parameterType="java.util.List">
+		select sm.* from sys_authority sa left join sys_menu sm on sm.id=sa.menu_id
+		where sa.role_id in 
+		<foreach collection="roleIds" item="item" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+	</select>
+	
 </mapper>

@@ -5786,3 +5786,82 @@ Error starting ApplicationContext. To display the conditions report re-run your 
 2018-12-10 23:10:38 12577653 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '' 
 2018-12-10 23:10:38 12577654 [restartedMain] INFO  com.tortoise.quake.BaseApplication - Started BaseApplication in 4.68 seconds (JVM running for 12577.815) 
 2018-12-10 23:10:38 12577656 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged 
+2018-12-10 23:16:24 12923905 [Thread-1099] INFO  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@4aa4631a: startup date [Mon Dec 10 23:10:33 GMT+08:00 2018]; root of context hierarchy 
+2018-12-10 23:16:24 12923907 [Thread-1099] INFO  o.s.j.e.a.AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown 
+2018-12-10 23:16:24 12923907 [Thread-1099] INFO  o.s.j.e.a.AnnotationMBeanExporter - Unregistering JMX-exposed beans 
+2018-12-10 23:16:25 12924926 [restartedMain] INFO  com.tortoise.quake.BaseApplication - Starting BaseApplication on MS-20171023LRCA with PID 2196 (D:\workspace\fid-framework\target\classes started by Administrator in D:\workspace\fid-framework) 
+2018-12-10 23:16:25 12924926 [restartedMain] INFO  com.tortoise.quake.BaseApplication - The following profiles are active: dev 
+2018-12-10 23:16:25 12924965 [restartedMain] INFO  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@84d6f10: startup date [Mon Dec 10 23:16:25 GMT+08:00 2018]; root of context hierarchy 
+2018-12-10 23:16:26 12925535 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http) 
+2018-12-10 23:16:26 12925535 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2018-12-10 23:16:26 12925536 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat] 
+2018-12-10 23:16:26 12925536 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.31 
+2018-12-10 23:16:26 12925558 [localhost-startStop-1] INFO  o.a.c.c.C.[.[localhost].[/] - Initializing Spring embedded WebApplicationContext 
+2018-12-10 23:16:26 12925581 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Servlet dispatcherServlet mapped to [/] 
+2018-12-10 23:16:26 12925581 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Servlet statViewServlet mapped to [/druid/*] 
+2018-12-10 23:16:26 12925581 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*] 
+2018-12-10 23:16:26 12925581 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*] 
+2018-12-10 23:16:26 12925581 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*] 
+2018-12-10 23:16:26 12925581 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*] 
+2018-12-10 23:16:26 12925581 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'webStatFilter' to urls: [/*] 
+2018-12-10 23:16:26 12925707 [restartedMain] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat] 
+2018-12-10 23:16:26 12925741 [restartedMain] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled. 
+2018-12-10 23:23:12 13331573 [restartedMain] INFO  com.tortoise.quake.BaseApplication - Starting BaseApplication on MS-20171023LRCA with PID 2196 (D:\workspace\fid-framework\target\classes started by Administrator in D:\workspace\fid-framework) 
+2018-12-10 23:23:12 13331574 [restartedMain] INFO  com.tortoise.quake.BaseApplication - The following profiles are active: dev 
+2018-12-10 23:23:12 13331585 [restartedMain] INFO  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@2f2b1c79: startup date [Mon Dec 10 23:23:12 GMT+08:00 2018]; root of context hierarchy 
+2018-12-10 23:23:12 13332184 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http) 
+2018-12-10 23:23:12 13332184 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2018-12-10 23:23:12 13332184 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat] 
+2018-12-10 23:23:12 13332184 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.31 
+2018-12-10 23:23:12 13332227 [localhost-startStop-1] INFO  o.a.c.c.C.[.[localhost].[/] - Initializing Spring embedded WebApplicationContext 
+2018-12-10 23:23:12 13332254 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Servlet dispatcherServlet mapped to [/] 
+2018-12-10 23:23:12 13332254 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Servlet statViewServlet mapped to [/druid/*] 
+2018-12-10 23:23:12 13332255 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*] 
+2018-12-10 23:23:12 13332255 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*] 
+2018-12-10 23:23:12 13332255 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*] 
+2018-12-10 23:23:12 13332255 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*] 
+2018-12-10 23:23:12 13332255 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'webStatFilter' to urls: [/*] 
+2018-12-10 23:23:12 13332359 [restartedMain] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat] 
+2018-12-10 23:23:13 13332380 [restartedMain] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled. 
+2018-12-10 23:23:51 13370706 [restartedMain] INFO  com.tortoise.quake.BaseApplication - Starting BaseApplication on MS-20171023LRCA with PID 2196 (D:\workspace\fid-framework\target\classes started by Administrator in D:\workspace\fid-framework) 
+2018-12-10 23:23:51 13370706 [restartedMain] INFO  com.tortoise.quake.BaseApplication - The following profiles are active: dev 
+2018-12-10 23:23:51 13370717 [restartedMain] INFO  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@34794094: startup date [Mon Dec 10 23:23:51 GMT+08:00 2018]; root of context hierarchy 
+2018-12-10 23:23:51 13371296 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http) 
+2018-12-10 23:23:51 13371297 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2018-12-10 23:23:51 13371297 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat] 
+2018-12-10 23:23:51 13371297 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.31 
+2018-12-10 23:23:52 13371363 [localhost-startStop-1] INFO  o.a.c.c.C.[.[localhost].[/] - Initializing Spring embedded WebApplicationContext 
+2018-12-10 23:23:52 13371425 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Servlet dispatcherServlet mapped to [/] 
+2018-12-10 23:23:52 13371425 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Servlet statViewServlet mapped to [/druid/*] 
+2018-12-10 23:23:52 13371425 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*] 
+2018-12-10 23:23:52 13371425 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*] 
+2018-12-10 23:23:52 13371425 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*] 
+2018-12-10 23:23:52 13371425 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*] 
+2018-12-10 23:23:52 13371425 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'webStatFilter' to urls: [/*] 
+2018-12-10 23:23:52 13371585 [restartedMain] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat] 
+2018-12-10 23:23:52 13371598 [restartedMain] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled. 
+2018-12-10 23:24:23 13403225 [restartedMain] INFO  com.tortoise.quake.BaseApplication - Starting BaseApplication on MS-20171023LRCA with PID 2196 (D:\workspace\fid-framework\target\classes started by Administrator in D:\workspace\fid-framework) 
+2018-12-10 23:24:23 13403225 [restartedMain] INFO  com.tortoise.quake.BaseApplication - The following profiles are active: dev 
+2018-12-10 23:24:23 13403238 [restartedMain] INFO  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@50226eb0: startup date [Mon Dec 10 23:24:23 GMT+08:00 2018]; root of context hierarchy 
+2018-12-10 23:24:24 13403982 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http) 
+2018-12-10 23:24:24 13403983 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2018-12-10 23:24:24 13403983 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat] 
+2018-12-10 23:24:24 13403983 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.31 
+2018-12-10 23:24:24 13404019 [localhost-startStop-1] INFO  o.a.c.c.C.[.[localhost].[/] - Initializing Spring embedded WebApplicationContext 
+2018-12-10 23:24:24 13404046 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Servlet dispatcherServlet mapped to [/] 
+2018-12-10 23:24:24 13404047 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Servlet statViewServlet mapped to [/druid/*] 
+2018-12-10 23:24:24 13404047 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*] 
+2018-12-10 23:24:24 13404047 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*] 
+2018-12-10 23:24:24 13404047 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*] 
+2018-12-10 23:24:24 13404047 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*] 
+2018-12-10 23:24:24 13404047 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'webStatFilter' to urls: [/*] 
+2018-12-10 23:24:24 13404248 [restartedMain] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat] 
+2018-12-10 23:24:24 13404269 [restartedMain] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled. 
