@@ -10,9 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -20,8 +18,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.tortoise.framework.dto.ApiResult;
 import com.tortoise.quake.model.Authority;
 import com.tortoise.quake.service.AuthorityService;
-import com.tortoise.quake.service.MenuService;
-import com.tortoise.quake.vo.MenuVo;
 
 /**
  * 
@@ -37,22 +33,11 @@ import com.tortoise.quake.vo.MenuVo;
 @RequestMapping("/authority")
 @Controller
 public class AuthorityController {
-	@Autowired
-	private MenuService mMenuService;
 	
 	@Autowired
 	private AuthorityService mAuthorityService;
 	
-	/**
-	 * 权限管理页面跳转
-	 * @param model
-	 * @return
-	 */
-	@GetMapping("/manager")
-	public String manager(Model model) {
-		return "system/authority/authorityManager";
-	}
-	
+
 	/**
 	 * 根据角色获取权限列表
 	 * @param request
@@ -68,23 +53,7 @@ public class AuthorityController {
 		return new ApiResult(ApiResult.SUCCESS, "成功！", authoritys);
 	}
 	
-	/**
-	 * 获取完整的权限树
-	 * @param request
-	 * @param response
-	 * @return
-	 */
-	@ResponseBody
-	@PostMapping("/getAuthorityTree")
-	public ApiResult getAuthorityTree(HttpServletRequest request, HttpServletResponse response, Long roleId) {
-		try {
-			List<MenuVo> menus = mMenuService.getMenuTree();
-			return new ApiResult(ApiResult.SUCCESS, "成功！", menus);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return new ApiResult(ApiResult.FAILURE, "失败！", null);
-	}
+
 	
 	/**
 	 * 保存权限
