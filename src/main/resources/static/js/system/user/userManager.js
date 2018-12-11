@@ -8,6 +8,102 @@ $(function(){
 		$('#mytable').bootstrapTable('resetView');
 	})
 	
+
+	//初始化机构树
+   initTreeview();
+  
+   
+   
+   //初始化机构类型
+   function initDepartmentType(){
+   	$.get("/departmentType/getAllDepartmentType", function(data){
+   		if(data && data.state == 1) {
+   			departmentTypes = data.datas;
+   			var htmlStr = "";
+   			for(var i=0; i<departmentTypes.length; i++){
+   				htmlStr += "<option value='"+departmentTypes[i].id+"'>"+departmentTypes[i].typeName+"</option>";
+   			}
+   			
+   			$("#departmentTypeId").html(htmlStr);
+   			
+   		}
+   	});
+   }
+   
+   //构建树结构
+	function buildDomTree(departments) {
+       var data = [];
+
+       function walk(nodes, data) {
+       	if (!nodes) { return; }
+       	$.each(nodes, function (id, node) {
+       		var obj = {
+       			text: node.departmentName,
+       			icon: "fa fa-bank",
+       			nodev: node
+	            };
+	            if (node.children && node.children.length > 0) {
+	            	obj.nodes = [];
+	            	walk(node.children, obj.nodes);
+	            }
+	            data.push(obj);
+       	});
+       }
+
+       walk(departments, data);
+       return data;
+	}
+   
+	 //初始化机构树
+    function initTreeview(){
+//    	$('#event_output').html('无');
+//    	$('#event_code').html('无');
+//    	$('#event_type').html('无');
+    	$.post("/department/getDepartmentTree", {}, function(data) {
+    		if(data && data.state == 1) {
+    			var departments = data.datas;
+    			
+    			$("#departmentTree").treeview({
+    	            color: "#428bca",
+    	            data: buildDomTree(departments),
+    	            onNodeSelected: function(event, node) {
+    	                $('#event_output').html(node.text);
+    	                $('#event_code').html(node.nodev.departmentCode);
+    	                for(var i=0; i<departmentTypes.length; i++){
+    	    				if(node.nodev.departmentTypeId==departmentTypes[i].id){
+    	    					 $('#event_type').html(departmentTypes[i].typeName);
+    	    					 break;
+    	    				}
+    	    			}
+    	               
+    	              },
+    	              onNodeUnselected: function (event, node) {
+//    	            	  $('#event_output').html('无');
+//    	            	  $('#event_code').html('无');
+//    	            	  $('#event_type').html('无');
+    	              }
+    	        });
+    		}
+    	})
+    }
+   
+   
+   /**
+    * 获取选中的节点
+    */
+   function getSelectNode(){
+   	var arr = $('#departmentTree').treeview('getSelected');
+   	if(arr.length > 0){
+   		return arr[0].nodev;
+   	}else{
+   		return null;
+   	}
+   }
+   
+	
+	
+	
+	
 	//操作栏事件			
 	window.operateEvents = {
 		'click .editItem' : function(e, value, row, index) {
