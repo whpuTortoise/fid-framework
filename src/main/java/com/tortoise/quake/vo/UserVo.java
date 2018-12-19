@@ -6,6 +6,7 @@ import com.tortoise.quake.model.User;
  * Created by Pp on 2018-12-19
  */
 public class UserVo extends User {
+    private String departmentName;
     private String departmentId;
     private String roleIds;
 
@@ -23,5 +24,13 @@ public class UserVo extends User {
 
     public void setRoleIds(String roleIds) {
         this.roleIds = roleIds;
+    }
+
+    public String getDepartmentName() {
+        return departmentName;
+    }
+
+    public void setDepartmentName(String departmentName) {
+        this.departmentName = departmentName;
     }
 }

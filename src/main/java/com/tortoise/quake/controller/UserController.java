@@ -7,6 +7,11 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.tortoise.quake.model.UserDepartmentEntity;
+import com.tortoise.quake.model.UserRoleEntity;
+import com.tortoise.quake.service.DepartmentService;
+import com.tortoise.quake.service.UserDepartmentService;
+import com.tortoise.quake.service.UserRoleService;
 import com.tortoise.quake.vo.UserVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -40,6 +45,12 @@ import com.tortoise.quake.vo.page.UserPageReqVo;
 public class UserController {
 	@Autowired
 	private UserService mUserService;
+	@Autowired
+	private UserDepartmentService mUserDepartmentService;
+	@Autowired
+	private UserRoleService mUserRoleService;
+
+
 	
 	/**
 	 * 用户管理页面跳转
@@ -91,12 +102,33 @@ public class UserController {
 	@PostMapping("/saveUser")
 	public ApiResult saveUser(HttpServletRequest request, HttpServletResponse response, UserVo user) {
 		try {
+			Long userId ;
 			if(StringUtils.isEmpty(user.getId())){
 				mUserService.insert(user);
+				List<User> users = mUserService.queryList(user);
+				userId = users.get(0).getId();
 			}else{
 				mUserService.update(user);
+				userId = user.getId();
 			}
-			List<User> users = mUserService.queryList(user);
+			//插入所属部门
+			UserDepartmentEntity userDepartmentEntity = new UserDepartmentEntity();
+			userDepartmentEntity.setUserId(userId);
+			userDepartmentEntity.setDepartmentId(Long.parseLong(user.getDepartmentId()));
+			mUserDepartmentService.deleteByUserId(userId);
+			mUserDepartmentService.insert(userDepartmentEntity);
+			//插入所属角色
+			mUserRoleService.deleteByUserId(userId);
+			if(!StringUtils.isEmpty(user.getRoleIds())) {
+				String[] roleIds = user.getRoleIds().split(",");
+				for (int i = 0; i < roleIds.length; i++) {
+					UserRoleEntity userRoleEntity = new UserRoleEntity();
+					userRoleEntity.setUserId(userId);
+					userRoleEntity.setRoleId(Long.parseLong(roleIds[i]));
+					mUserRoleService.insert(userRoleEntity);
+				}
+			}
+
 		} catch (Exception e) {
 			e.printStackTrace();
 			return new ApiResult(ApiResult.FAILURE, "保存失败！", null);

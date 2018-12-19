@@ -14,4 +14,11 @@ public class UserDepartmentService extends BaseService<UserDepartmentEntity, Use
 		this.mapper = mapper;
 	}
 
+	/**
+	 * 根据用户ID删除归属部门
+	 */
+	public int deleteByUserId(Long userId){
+
+		return mapper.deleteByUserId(userId);
+	}
 }

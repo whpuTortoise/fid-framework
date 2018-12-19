@@ -19,6 +19,8 @@ public class UserPageReqVo extends PageReqVo {
 	
 	private String searchTel;
 
+	private String searchDepartmentId;
+
 	public String getSearchUserName() {
 		return searchUserName;
 	}
@@ -35,4 +37,11 @@ public class UserPageReqVo extends PageReqVo {
 		this.searchTel = searchTel;
 	}
 
+	public String getSearchDepartmentId() {
+		return searchDepartmentId;
+	}
+
+	public void setSearchDepartmentId(String searchDepartmentId) {
+		this.searchDepartmentId = searchDepartmentId;
+	}
 }

@@ -15,21 +15,7 @@ $(function(){
   
    
    
-   //初始化机构类型
-   function initDepartmentType(){
-   	$.get("/departmentType/getAllDepartmentType", function(data){
-   		if(data && data.state == 1) {
-   			departmentTypes = data.datas;
-   			var htmlStr = "";
-   			for(var i=0; i<departmentTypes.length; i++){
-   				htmlStr += "<option value='"+departmentTypes[i].id+"'>"+departmentTypes[i].typeName+"</option>";
-   			}
-   			
-   			$("#departmentTypeId").html(htmlStr);
-   			
-   		}
-   	});
-   }
+
    
    //构建树结构
 	function buildDomTree(departments) {
@@ -117,7 +103,7 @@ $(function(){
 				var roles = data.datas;
 				var htmlStr = "";
 				for(var i=0; i<roles.length; i++){
-						htmlStr += "<label class='checkbox-inline'><input type='checkbox' value='"+roles[i].id+"' >"+roles[i].roleName+"</label>";
+						htmlStr += "<label class='checkbox-inline'><input type='checkbox' value='"+roles[i].id+"' name='roleIds'>"+roles[i].roleName+"</label>";
 				}
 
 				$("#checkRole").html(htmlStr);
@@ -214,8 +200,8 @@ $(function(){
 					},
 					{
 						align : 'center',
-						title : '年龄',
-						field : 'age'
+						title : '出生日期',
+						field : 'birthday'
 					},
 					{
 						align : 'center',
@@ -335,7 +321,7 @@ $(function(){
 	//弹窗关闭监听
 	$("#editModal").on("hide.bs.modal",function(){
 		//清空表单信息
-		$("#editForm").find('input[type=text],select,input[type=hidden]').each(function() {
+		$("#editForm").find('input[type=text],select,input[type=hidden],input[type=checkbox]').each(function() {
 			$(this).val('');
 		});
 		

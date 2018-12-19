@@ -15,4 +15,12 @@ public class UserRoleService extends BaseService<UserRoleEntity, UserRoleMapper>
 		this.mapper = mapper;
 	}
 
+	/**
+	 * 根据用户ID删除角色
+	 */
+	public int deleteByUserId(Long userId){
+
+		return mapper.deleteByUserId(userId);
+	}
+
 }
