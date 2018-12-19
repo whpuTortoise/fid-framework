@@ -7,7 +7,8 @@ $(function(){
 	$(window).resize(function() {
 		$('#mytable').bootstrapTable('resetView');
 	})
-	
+
+
 
 	//初始化机构树
    initTreeview();
@@ -83,9 +84,47 @@ $(function(){
 //    	            	  $('#event_type').html('无');
     	              }
     	        });
+    			initDepartment();
+    			initRole();
     		}
     	})
     }
+
+	//初始化部门
+	function initDepartment(){
+		$.get("/department/getAllDepartment", function(data){
+			if(data && data.state == 1) {
+				var lists = data.datas;
+				var htmlStr = "";
+				for(var i=0; i<lists.length; i++){
+					if(i == 0){
+						htmlStr = "<option value='"+lists[i].id+"' selected='selected'>"+lists[i].departmentName+"</option>";
+					}else{
+						htmlStr += "<option value='"+lists[i].id+"'>"+lists[i].departmentName+"</option>";
+					}
+				}
+
+				$("#departmentId").html(htmlStr);
+
+			}
+		});
+	}
+
+	//初始化角色
+	function initRole(){
+		$.get("/role/getAllRole", function(data){
+			if(data && data.state == 1) {
+				var roles = data.datas;
+				var htmlStr = "";
+				for(var i=0; i<roles.length; i++){
+						htmlStr += "<label class='checkbox-inline'><input type='checkbox' value='"+roles[i].id+"' >"+roles[i].roleName+"</label>";
+				}
+
+				$("#checkRole").html(htmlStr);
+
+			}
+		});
+	}
    
    
    /**
@@ -312,6 +351,14 @@ $(function(){
 			validating: 'glyphicon glyphicon-refresh'
 		},
 		fields: {
+			departmentId: {
+				validators: {
+					notEmpty: {
+						message: '归属机构不能为空'
+					}
+
+				}
+			},
 			username: {
 				validators: {
 					notEmpty: {
@@ -336,13 +383,6 @@ $(function(){
 					}
 				}
 			},
-			age:{
-				validators:{
-					notEmpty:{
-						message:'年龄不能为空'
-					}
-				}
-			},
 			tel: {
 				validators: {
 					notEmpty: {
@@ -357,6 +397,14 @@ $(function(){
 						regexp: /^1(3|4|5|6|7|8)\d{9}$/,
 						message: '请填写正确的手机号'
 					}
+				}
+			},
+			birthday: {
+				validators: {
+					notEmpty: {
+						message: '出生日期不能为空'
+					}
+
 				}
 			}
 			/*Email: {

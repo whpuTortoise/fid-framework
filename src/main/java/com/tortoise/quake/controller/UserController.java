@@ -7,6 +7,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.tortoise.quake.vo.UserVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -88,13 +89,14 @@ public class UserController {
 	 */
 	@ResponseBody
 	@PostMapping("/saveUser")
-	public ApiResult saveUser(HttpServletRequest request, HttpServletResponse response, User user) {
+	public ApiResult saveUser(HttpServletRequest request, HttpServletResponse response, UserVo user) {
 		try {
 			if(StringUtils.isEmpty(user.getId())){
 				mUserService.insert(user);
 			}else{
 				mUserService.update(user);
 			}
+			List<User> users = mUserService.queryList(user);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return new ApiResult(ApiResult.FAILURE, "保存失败！", null);

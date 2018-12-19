@@ -25,9 +25,9 @@ public class User implements Serializable {
     private String realName;
 
     /**
-     * 年龄
+     * 出生日期
      **/
-    private String age;
+    private String birthday;
 
     /**
      * 电话
@@ -95,13 +95,7 @@ public class User implements Serializable {
         return this.realName;
     }
 
-    public void setAge(String age) {
-        this.age = age;
-    }
 
-    public String getAge() {
-        return this.age;
-    }
 
     public void setTel(String tel) {
         this.tel = tel;
@@ -109,6 +103,14 @@ public class User implements Serializable {
 
     public String getTel() {
         return this.tel;
+    }
+
+    public String getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(String birthday) {
+        this.birthday = birthday;
     }
 
     public void setUpdateId(String updateId) {

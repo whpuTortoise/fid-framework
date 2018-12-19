@@ -7,7 +7,7 @@
 		<result column="username" property="username" jdbcType="VARCHAR" />
 		<result column="password" property="password" jdbcType="VARCHAR" />
 		<result column="real_name" property="realName" jdbcType="VARCHAR" />
-		<result column="age" property="age" jdbcType="VARCHAR" />
+		<result column="birthday" property="birthday" jdbcType="VARCHAR" />
 		<result column="tel" property="tel" jdbcType="VARCHAR" />
 		<result column="update_id" property="updateId" jdbcType="VARCHAR" />
 		<result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
@@ -17,11 +17,11 @@
 	</resultMap>
 
 	<sql id="Base_Column_List">
-		id,username,password,real_name,age,tel,update_id,update_time,create_id,create_time,is_deleted
+		id,username,password,real_name,birthday,tel,update_id,update_time,create_id,create_time,is_deleted
 	</sql>
 
 	<sql id="Alias_Column_List">
-		t.id,t.username,t.password,t.real_name,t.age,t.tel,t.update_id,t.update_time,t.create_id,t.create_time,t.is_deleted
+		t.id,t.username,t.password,t.real_name,t.birthday,t.tel,t.update_id,t.update_time,t.create_id,t.create_time,t.is_deleted
 	</sql>
 
 	<sql id="Base_Condition">
@@ -30,7 +30,7 @@
 		   <if test="username != null">and t.username = #{username,jdbcType=VARCHAR}</if>
 		   <if test="password != null">and t.password = #{password,jdbcType=VARCHAR}</if>
 		   <if test="realName != null">and t.real_name = #{realName,jdbcType=VARCHAR}</if>
-		   <if test="age != null">and t.age = #{age,jdbcType=VARCHAR}</if>
+		   <if test="birthday != null">and t.birthday = #{birthday,jdbcType=VARCHAR}</if>
 		   <if test="tel != null">and t.tel = #{tel,jdbcType=VARCHAR}</if>
 		   <!-- 自定义 -->
 		</where>
@@ -79,7 +79,7 @@
 			#{username,jdbcType=VARCHAR},
 			#{password,jdbcType=VARCHAR},
 			#{realName,jdbcType=VARCHAR},
-			#{age,jdbcType=VARCHAR},
+			#{birthday,jdbcType=VARCHAR},
 			#{tel,jdbcType=VARCHAR},
 			#{updateId,jdbcType=VARCHAR},
 			#{updateTime,jdbcType=TIMESTAMP},
@@ -101,7 +101,7 @@
 			<if test="username != null">username,</if>
 			<if test="password != null">password,</if>
 			<if test="realName != null">real_name,</if>
-			<if test="age != null">age,</if>
+			<if test="birthday != null">birthday,</if>
 			<if test="tel != null">tel,</if>
 			<if test="updateId != null">update_id,</if>
 			<if test="updateTime != null">update_time,</if>
@@ -114,7 +114,7 @@
 			<if test="username != null">#{username,jdbcType=VARCHAR},</if>
 			<if test="password != null">#{password,jdbcType=VARCHAR},</if>
 			<if test="realName != null">#{realName,jdbcType=VARCHAR},</if>
-			<if test="age != null">#{age,jdbcType=VARCHAR},</if>
+			<if test="birthday != null">#{birthday,jdbcType=VARCHAR},</if>
 			<if test="tel != null">#{tel,jdbcType=VARCHAR},</if>
 			<if test="updateId != null">#{updateId,jdbcType=VARCHAR},</if>
 			<if test="updateTime != null">#{updateTime,jdbcType=TIMESTAMP},</if>
@@ -131,7 +131,7 @@
 			<if test="username != null">username = #{username,jdbcType=VARCHAR},</if>
 			<if test="password != null">password = #{password,jdbcType=VARCHAR},</if>
 			<if test="realName != null">real_name = #{realName,jdbcType=VARCHAR},</if>
-			<if test="age != null">age = #{age,jdbcType=VARCHAR},</if>
+			<if test="birthday != null">birthday = #{birthday,jdbcType=VARCHAR},</if>
 			<if test="tel != null">tel = #{tel,jdbcType=VARCHAR},</if>
 			<if test="updateId != null">update_id = #{updateId,jdbcType=VARCHAR},</if>
 			<if test="updateTime != null">update_time = #{updateTime,jdbcType=TIMESTAMP},</if>
@@ -149,7 +149,7 @@
 			username = #{username,jdbcType=VARCHAR},
 			password = #{password,jdbcType=VARCHAR},
 			real_name = #{realName,jdbcType=VARCHAR},
-			age = #{age,jdbcType=VARCHAR},
+			birthday = #{birthday,jdbcType=VARCHAR},
 			tel = #{tel,jdbcType=VARCHAR},
 			update_id = #{updateId,jdbcType=VARCHAR},
 			update_time = #{updateTime,jdbcType=TIMESTAMP},
@@ -171,7 +171,7 @@
 			<choose><when test="item.username != null">,#{item.username}</when><otherwise>,default</otherwise></choose>
 			<choose><when test="item.password != null">,#{item.password}</when><otherwise>,default</otherwise></choose>
 			<choose><when test="item.realName != null">,#{item.realName}</when><otherwise>,default</otherwise></choose>
-			<choose><when test="item.age != null">,#{item.age}</when><otherwise>,default</otherwise></choose>
+			<choose><when test="item.birthday != null">,#{item.birthday}</when><otherwise>,default</otherwise></choose>
 			<choose><when test="item.tel != null">,#{item.tel}</when><otherwise>,default</otherwise></choose>
 			<choose><when test="item.updateId != null">,#{item.updateId}</when><otherwise>,default</otherwise></choose>
 			<choose><when test="item.updateTime != null">,#{item.updateTime}</when><otherwise>,default</otherwise></choose>
@@ -194,7 +194,7 @@
 			<choose><when test="item.username != null">,#{item.username}</when><otherwise>,default</otherwise></choose>
 			<choose><when test="item.password != null">,#{item.password}</when><otherwise>,default</otherwise></choose>
 			<choose><when test="item.realName != null">,#{item.realName}</when><otherwise>,default</otherwise></choose>
-			<choose><when test="item.age != null">,#{item.age}</when><otherwise>,default</otherwise></choose>
+			<choose><when test="item.birthday != null">,#{item.birthday}</when><otherwise>,default</otherwise></choose>
 			<choose><when test="item.tel != null">,#{item.tel}</when><otherwise>,default</otherwise></choose>
 			<choose><when test="item.updateId != null">,#{item.updateId}</when><otherwise>,default</otherwise></choose>
 			<choose><when test="item.updateTime != null">,#{item.updateTime}</when><otherwise>,default</otherwise></choose>
@@ -203,7 +203,7 @@
 			<choose><when test="item.isDeleted != null">,#{item.isDeleted}</when><otherwise>,default</otherwise></choose>
 		)
 		</foreach>
-		on duplicate key update username = values(username), password = values(password), real_name = values(real_name), age = values(age), tel = values(tel), update_id = values(update_id), update_time = values(update_time), create_id = values(create_id), create_time = values(create_time), is_deleted = values(is_deleted)
+		on duplicate key update username = values(username), password = values(password), real_name = values(real_name), birthday = values(birthday), tel = values(tel), update_id = values(update_id), update_time = values(update_time), create_id = values(create_id), create_time = values(create_time), is_deleted = values(is_deleted)
 	</update>
 
 	<!-- 批量删除 -->

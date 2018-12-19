@@ -102,6 +102,16 @@
 					<form id="editForm" method="post" class="form-horizontal">
 						<input type="hidden" class="form-control" name="id" id="id" />
 						<div class="form-group">
+							<label class="col-sm-2 control-label">归属机构</label>
+							<div class="col-sm-10">
+								<select class="form-control" name="departmentId" id="departmentId">
+									<option value="1" selected="selected">部门1</option>
+									<option value="2">部门2</option>
+									<option value="3">部门3</option>
+								</select>
+							</div>
+						</div>
+						<div class="form-group">
 							<label class="col-sm-2 control-label">用户名</label>
 							<div class="col-sm-10">
 								<input type="text" class="form-control" name="username" id="username" />
@@ -123,9 +133,15 @@
 						</div>
 						<div class="hr-line-dashed"></div>
 						<div class="form-group">
-							<label class="col-sm-2 control-label">年龄</label>
+							<label class="col-sm-2 control-label">出生日期</label>
 							<div class="col-sm-10">
-								<input type="text" class="form-control" name="age" id="age" />
+								<input type="text" class="form-control" name="birthday" id="birthday" />
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label">用户角色</label>
+							<div class="col-sm-10" id="checkRole">
+
 							</div>
 						</div>
 					</form>
@@ -142,7 +158,8 @@
 	<script th:src="@{/static/js/jquery.min.js}"></script>
 	<script th:src="@{/static/js/bootstrap.min.js}"></script>
 	<script th:src="@{/static/js/content.min.js}"></script>
-	
+
+
 	<script th:src="@{/static/js/plugins/bootstrap-table/bootstrap-table.min.js}"></script>
 	<script th:src="@{/static/js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js}"></script>
 	<script th:src="@{/static/js/plugins/bootstrapValidator/bootstrapValidator.min.js}" ></script>
