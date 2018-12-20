@@ -1,5 +1,6 @@
 package com.tortoise.quake.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -7,12 +8,15 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.tortoise.framework.util.BeanUtil;
+import com.tortoise.quake.model.Department;
 import com.tortoise.quake.model.UserDepartmentEntity;
 import com.tortoise.quake.model.UserRoleEntity;
 import com.tortoise.quake.service.DepartmentService;
 import com.tortoise.quake.service.UserDepartmentService;
 import com.tortoise.quake.service.UserRoleService;
 import com.tortoise.quake.vo.UserVo;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -49,6 +53,8 @@ public class UserController {
 	private UserDepartmentService mUserDepartmentService;
 	@Autowired
 	private UserRoleService mUserRoleService;
+	@Autowired
+	private DepartmentService mDepartmentService;
 
 
 	
@@ -79,8 +85,8 @@ public class UserController {
 		if(!StringUtils.isEmpty(pageReqVo.getSearchUserName())){
 			queryMap.put("username", pageReqVo.getSearchUserName());
 		}
-		if(!StringUtils.isEmpty(pageReqVo.getSearchTel())){
-			queryMap.put("tel", pageReqVo.getSearchTel());
+		if(!StringUtils.isEmpty(pageReqVo.getSearchRealName())){
+			queryMap.put("realName", pageReqVo.getSearchRealName());
 		}
 		List<User> users = mUserService.queryList(queryMap, pageReqVo.getOffset(), pageReqVo.getLimit());
 		int count = mUserService.count(queryMap);
@@ -88,6 +94,91 @@ public class UserController {
 		PageRespVo<User> pageRespVo = new PageRespVo<User>();
 		pageRespVo.setTotal(count);
 		pageRespVo.setRows(users);
+		return JsonUtil.toJson(pageRespVo);
+	}
+
+	/**
+	 *
+	 * @Title: getShowUserList
+	 * @Description: 获取显示用户列表
+	 * @param request
+	 * @param response
+	 * @param pageReqVo
+	 * @return String
+	 * @throws
+	 */
+	@ResponseBody
+	@PostMapping(value = "/getShowUserList", produces="application/json;charset=UTF-8")
+	public String getShowUserList(HttpServletRequest request, HttpServletResponse response, UserPageReqVo pageReqVo) {
+		PageRespVo<UserVo> pageRespVo = new PageRespVo<UserVo>();
+		if(!StringUtils.isEmpty(pageReqVo.getSearchDepartmentId())){
+			Map<String, Object> queryMap = new HashMap<String, Object>();
+			queryMap.put("departmentId", pageReqVo.getSearchDepartmentId());
+
+			List<UserDepartmentEntity> userDepartmentEntities = mUserDepartmentService.queryList(queryMap, pageReqVo.getOffset(), pageReqVo.getLimit());
+			List<Department> departments = mDepartmentService.queryAll();
+			List<User> users = mUserService.queryAll();
+
+			int count = mUserDepartmentService.count(queryMap);
+			List<UserVo> showList = new ArrayList<UserVo>();
+			for(int i=0;i<userDepartmentEntities.size();i++){
+				UserVo userVo = new UserVo();
+				for(int j=0;j<users.size();j++){
+					if(users.get(j).getId()==userDepartmentEntities.get(i).getUserId()){
+						BeanUtils.copyProperties(users.get(j),userVo);
+						break;
+					}
+				}
+
+				for(int k=0;k<departments.size();k++){
+					if(departments.get(k).getId()==userDepartmentEntities.get(i).getDepartmentId()){
+						userVo.setDepartmentId(departments.get(k).getId().toString());
+						userVo.setDepartmentName(departments.get(k).getDepartmentName());
+						break;
+					}
+				}
+
+				showList.add(userVo);
+			}
+			pageRespVo.setTotal(count);
+			pageRespVo.setRows(showList);
+		}else {
+			Map<String, Object> queryMap = new HashMap<String, Object>();
+			if(!StringUtils.isEmpty(pageReqVo.getSearchUserName())){
+				queryMap.put("username", pageReqVo.getSearchUserName());
+			}
+			if(!StringUtils.isEmpty(pageReqVo.getSearchRealName())){
+				queryMap.put("realName", pageReqVo.getSearchRealName());
+			}
+			List<UserDepartmentEntity> userDepartmentEntities = mUserDepartmentService.queryAll();
+			List<Department> departments = mDepartmentService.queryAll();
+
+			List<User> users = mUserService.queryList(queryMap, pageReqVo.getOffset(), pageReqVo.getLimit());
+			int count = mUserService.count(queryMap);
+			List<UserVo> showList = new ArrayList<UserVo>();
+			for(int i=0;i<users.size();i++){
+				UserVo userVo = new UserVo();
+				BeanUtils.copyProperties(users.get(i),userVo);
+				for(int j=0;j<userDepartmentEntities.size();j++){
+					if(userVo.getId()==userDepartmentEntities.get(j).getUserId()){
+						userVo.setDepartmentId(userDepartmentEntities.get(j).getDepartmentId().toString());
+						for(int k=0;k<departments.size();k++){
+							if(userVo.getDepartmentId().equals(departments.get(k).getId().toString())){
+								userVo.setDepartmentName(departments.get(k).getDepartmentName());
+								break;
+							}
+						}
+						break;
+					}
+				}
+				showList.add(userVo);
+			}
+			pageRespVo.setTotal(count);
+			pageRespVo.setRows(showList);
+		}
+
+
+
 		return JsonUtil.toJson(pageRespVo);
 	}
 	

@@ -7,7 +7,7 @@ $(function(){
 	$(window).resize(function() {
 		$('#mytable').bootstrapTable('resetView');
 	})
-
+	var searchType=0;
 
 
 	//初始化机构树
@@ -54,20 +54,11 @@ $(function(){
     	            color: "#428bca",
     	            data: buildDomTree(departments),
     	            onNodeSelected: function(event, node) {
-    	                $('#event_output').html(node.text);
-    	                $('#event_code').html(node.nodev.departmentCode);
-    	                for(var i=0; i<departmentTypes.length; i++){
-    	    				if(node.nodev.departmentTypeId==departmentTypes[i].id){
-    	    					 $('#event_type').html(departmentTypes[i].typeName);
-    	    					 break;
-    	    				}
-    	    			}
-    	               
+    	            	searchType = 1;
+    	            	initTable();
     	              },
     	              onNodeUnselected: function (event, node) {
-//    	            	  $('#event_output').html('无');
-//    	            	  $('#event_code').html('无');
-//    	            	  $('#event_type').html('无');
+//
     	              }
     	        });
     			initDepartment();
@@ -166,7 +157,7 @@ $(function(){
 		$('#mytable').bootstrapTable({
 			method : 'post',
 			contentType : "application/x-www-form-urlencoded",
-			url : "/user/getUserList",
+			url : "/user/getShowUserList",
 			queryParams : queryParams, //请求服务器时所传的参数
 			striped : true, //是否显示行间隔色
 			dataField : "rows", //数据列表字段
@@ -210,6 +201,11 @@ $(function(){
 					},
 					{
 						align : 'center',
+						title : '部门',
+						field : 'departmentName'
+					},
+					{
+						align : 'center',
 						title : '创建日期',
 						field : 'createTime'
 					},
@@ -240,15 +236,22 @@ $(function(){
 	
 	//请求服务数据时所传参数
 	function queryParams(params) {
-		var formData = $("#queryForm").serializeArray();//把form里面的数据序列化成数组
-		formData.forEach(function(e) {
-			params[e.name] = e.value;
-		});
+		if(searchType==0) {
+			var formData = $("#queryForm").serializeArray();//把form里面的数据序列化成数组
+			formData.forEach(function (e) {
+				params[e.name] = e.value;
+			});
+		}else if(searchType==1){
+			var node = getSelectNode();
+
+			params["searchDepartmentId"]=node.id;
+		}
 		return params;
 	}
 	
 	//查询按钮事件
 	$('#search_btn').click(function() {
+		searchType=0;
 		initTable();
 	})
 	
