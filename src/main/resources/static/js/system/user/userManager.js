@@ -74,11 +74,7 @@ $(function(){
 				var lists = data.datas;
 				var htmlStr = "";
 				for(var i=0; i<lists.length; i++){
-					if(i == 0){
-						htmlStr = "<option value='"+lists[i].id+"' selected='selected'>"+lists[i].departmentName+"</option>";
-					}else{
-						htmlStr += "<option value='"+lists[i].id+"'>"+lists[i].departmentName+"</option>";
-					}
+					htmlStr += "<option value='"+lists[i].id+"'>"+lists[i].departmentName+"</option>";
 				}
 
 				$("#departmentId").html(htmlStr);
