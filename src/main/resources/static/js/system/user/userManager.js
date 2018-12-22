@@ -57,9 +57,10 @@ $(function(){
     	            	searchType = 1;
     	            	initTable();
     	              },
-    	              onNodeUnselected: function (event, node) {
-//
-    	              }
+					  onNodeUnselected: function (event, node) {
+						  searchType = 1;
+						  initTable();
+					  }
     	        });
     			initDepartment();
     			initRole();
@@ -120,11 +121,16 @@ $(function(){
 	window.operateEvents = {
 		'click .editItem' : function(e, value, row, index) {
 			$("#id").val(row.id);
+			$("#departmentId").val(row.departmentId);
 			$("#username").val(row.username);
 			$("#realName").val(row.realName);
-			$("#age").val(row.age);
+			$("#birthday").val(row.birthday);
 			$("#tel").val(row.tel);
-			
+
+			initChecked(row.id);
+
+
+
 			$("#modelTitle").html("编辑用户");
 			$('#editModal').modal(); //显示编辑弹窗
 		},
@@ -143,6 +149,42 @@ $(function(){
 			});
 		}
 	};
+    //TODO
+	//初始化选中的菜单
+	function initChecked(userId) {
+
+		var roles = $("input[name='roleIds']");
+
+		roles.each(function(){
+			$(this).prop('checked',false);
+		});
+		if(userId!=null) {
+			$.post("/user/getUserRoleEntityByUserId", {'userId': userId}, function (data) {
+				if (data && data.state == 1) {
+					var userRoleEntities = data.datas;
+
+					roles.each(function () {
+						for (var i = 0; i < userRoleEntities.length; i++) {
+							if ($(this).val() == userRoleEntities[i].roleId) {
+								$(this).prop('checked', true);
+								break;
+							}
+
+						}
+
+
+					});
+				}
+			})
+		}
+
+
+	}
+
+
+
+
+
 	
 	//初始化列表
 	initTable();
@@ -237,10 +279,11 @@ $(function(){
 			formData.forEach(function (e) {
 				params[e.name] = e.value;
 			});
-		}else if(searchType==1){
+		}else if(searchType==1) {
 			var node = getSelectNode();
-
-			params["searchDepartmentId"]=node.id;
+			if (node!=null) {
+				params["searchDepartmentId"] = node.id;
+			}
 		}
 		return params;
 	}
@@ -266,6 +309,11 @@ $(function(){
 	//新增按钮事件
 	$('#btn_add').click(function() {
 		$("#modelTitle").html("新增用户");
+		var snode = getSelectNode();
+		if(snode != null){
+			$("#departmentId").val(snode.id);
+		}
+
 		$('#editModal').modal();
 	});
 	
@@ -320,7 +368,7 @@ $(function(){
 	//弹窗关闭监听
 	$("#editModal").on("hide.bs.modal",function(){
 		//清空表单信息
-		$("#editForm").find('input[type=text],select,input[type=hidden],input[type=checkbox]').each(function() {
+		$("#editForm").find('input[type=text],select,input[type=hidden]').each(function() {
 			$(this).val('');
 		});
 		

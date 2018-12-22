@@ -1,17 +1,12 @@
 package com.tortoise.quake.controller;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.tortoise.framework.util.BeanUtil;
-import com.tortoise.quake.model.Department;
-import com.tortoise.quake.model.UserDepartmentEntity;
-import com.tortoise.quake.model.UserRoleEntity;
+import com.tortoise.quake.model.*;
 import com.tortoise.quake.service.DepartmentService;
 import com.tortoise.quake.service.UserDepartmentService;
 import com.tortoise.quake.service.UserRoleService;
@@ -28,7 +23,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.tortoise.framework.dto.ApiResult;
 import com.tortoise.framework.util.JsonUtil;
-import com.tortoise.quake.model.User;
 import com.tortoise.quake.service.UserService;
 import com.tortoise.quake.vo.page.PageRespVo;
 import com.tortoise.quake.vo.page.UserPageReqVo;
@@ -226,7 +220,22 @@ public class UserController {
 		}
 		return new ApiResult(ApiResult.SUCCESS, "保存成功！", null);
 	}
-	
+
+	/**
+	 * 根据用户id获取角色id
+	 * @param request
+	 * @param response
+	 * @return
+	 */
+	@ResponseBody
+	@PostMapping(value = "/getUserRoleEntityByUserId", produces="application/json;charset=UTF-8")
+	public ApiResult getUserRoleEntityByUserId(HttpServletRequest request, HttpServletResponse response, String userId){
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("userId", userId);
+		List<UserRoleEntity> userRoleEntities = mUserRoleService.queryList(params);
+		return new ApiResult(ApiResult.SUCCESS, "成功！", userRoleEntities);
+	}
+
 	/**
 	 * 
 	* @Title: deleteUsers 
@@ -242,6 +251,8 @@ public class UserController {
 	public ApiResult deleteUsers(HttpServletRequest request, HttpServletResponse response, String ids) {
 		try {
 			mUserService.batchDelete(ids.split(","), String.class);
+			mUserRoleService.batchDeleteByUserIdList(Arrays.asList(ids.split(",")));
+			mUserDepartmentService.batchDeleteByUserIdList(Arrays.asList(ids.split(",")));
 		} catch (Exception e) {
 			e.printStackTrace();
 			return new ApiResult(ApiResult.FAILURE, "删除失败！", null);

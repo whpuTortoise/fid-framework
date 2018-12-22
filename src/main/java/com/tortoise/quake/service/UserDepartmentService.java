@@ -6,6 +6,8 @@ import com.tortoise.quake.model.UserDepartmentEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserDepartmentService extends BaseService<UserDepartmentEntity, UserDepartmentMapper> {
 
@@ -20,5 +22,18 @@ public class UserDepartmentService extends BaseService<UserDepartmentEntity, Use
 	public int deleteByUserId(Long userId){
 
 		return mapper.deleteByUserId(userId);
+	}
+
+	/**
+	 * 根据用户IdList批量删除归属关系
+	 */
+	public int batchDeleteByUserIdList(List userIdList){
+
+		if (userIdList != null && userIdList.size() > 0) {
+			return mapper.batchDeleteByUserIdList(userIdList);
+		} else {
+			return 0;
+		}
+
 	}
 }
