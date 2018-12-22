@@ -149,7 +149,6 @@ $(function(){
 			});
 		}
 	};
-    //TODO
 	//初始化选中的菜单
 	function initChecked(userId) {
 
