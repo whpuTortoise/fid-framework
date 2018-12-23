@@ -153,6 +153,12 @@
 		delete from sys_authority
 		where role_id = #{roleId,jdbcType=BIGINT}
 	</delete>
+
+	<!-- 根据菜单ID删除权限  -->
+	<delete id="deleteByMenuId" parameterType="java.lang.Long">
+		delete from sys_authority
+		where menu_id = #{menuId,jdbcType=BIGINT}
+	</delete>
 	
 	<!-- 根据角色ID获取菜单权限列表 -->
 	<select id="getMenusByRoles" resultType="com.tortoise.quake.model.Menu" parameterType="java.util.List">

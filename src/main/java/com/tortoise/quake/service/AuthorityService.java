@@ -25,8 +25,15 @@ public class AuthorityService extends BaseService<Authority, AuthorityMapper> {
 	public int deleteByRoleId(Long roleId){
 		return mapper.deleteByRoleId(roleId);
 	}
-	
-	
+
+	/**
+	 * 根据菜单ID删除权限
+	 */
+	public int deleteByMenuId(Long menuId){
+		return mapper.deleteByMenuId(menuId);
+	}
+
+
 	/**
 	 * 根据角色ID获取菜单权限列表
 	 * @param roleIds

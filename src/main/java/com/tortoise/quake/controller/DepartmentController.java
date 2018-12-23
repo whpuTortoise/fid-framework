@@ -7,6 +7,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.tortoise.quake.service.UserDepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,6 +30,8 @@ import com.tortoise.quake.vo.page.DepartmentPageReqVo;
 public class DepartmentController {
 	@Autowired
 	private DepartmentService mDepartmentService;
+	@Autowired
+	private UserDepartmentService mUserDepartmentService;
 	
 	/**
 	 * 部门管理页面跳转
@@ -130,7 +133,7 @@ public class DepartmentController {
 	* @Description: 删除部门
 	* @param request
 	* @param response
-	* @param ids
+	* @param id
 	* @return String     
 	* @throws
 	 */
@@ -139,6 +142,7 @@ public class DepartmentController {
 	public ApiResult deleteDepartments(HttpServletRequest request, HttpServletResponse response, Long id) {
 		try {
 			mDepartmentService.deleteDepartmentsById(id);
+			mUserDepartmentService.deleteByDepartmentId(id);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return new ApiResult(ApiResult.FAILURE, "删除失败！", null);

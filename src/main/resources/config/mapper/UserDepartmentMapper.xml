@@ -152,6 +152,12 @@
 		where user_id = #{userId,jdbcType=BIGINT}
 	</delete>
 
+	<!-- 根据机构ID删除归属关系  -->
+	<delete id="deleteByDepartmentId" parameterType="java.lang.Long">
+		delete from sys_user_department
+		where department_id = #{departmentId,jdbcType=BIGINT}
+	</delete>
+
 	<!-- 根据用户ID列表删除归属关系  -->
 	<delete id="batchDeleteByUserIdList" parameterType="java.util.List">
 		delete from sys_user_department where user_id in

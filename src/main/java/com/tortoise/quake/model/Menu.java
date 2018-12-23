@@ -162,4 +162,17 @@ public class Menu implements Serializable {
         return this.isDeleted;
     }
 
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Menu menu = (Menu) o;
+
+        if (!id.equals(menu.id)) return false;
+        return menuName.equals(menu.menuName);
+
+    }
+
 }

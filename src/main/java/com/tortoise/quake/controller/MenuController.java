@@ -5,6 +5,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.tortoise.quake.service.AuthorityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -35,6 +36,8 @@ import com.tortoise.quake.vo.MenuVo;
 public class MenuController {
 	@Autowired
 	private MenuService mMenuService;
+	@Autowired
+	private AuthorityService mAuthorityService;
 	
 	/**
 	 * 菜单管理页面跳转
@@ -102,6 +105,7 @@ public class MenuController {
 	public ApiResult deleteMenus(HttpServletRequest request, HttpServletResponse response, Long id) {
 		try {
 			mMenuService.deleteMenusById(id);
+			mAuthorityService.deleteByMenuId(id);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return new ApiResult(ApiResult.FAILURE, "删除失败！", null);

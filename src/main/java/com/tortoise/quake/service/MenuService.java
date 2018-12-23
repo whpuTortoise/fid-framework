@@ -3,6 +3,7 @@ package com.tortoise.quake.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.tortoise.framework.util.BeanUtil;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -43,8 +44,8 @@ public class MenuService extends BaseService<Menu, MenuMapper> {
 			for(UserRoleEntity entity : userRoles) {
 				roleIds.add(entity.getRoleId());
 			}
-			List<Menu> menus = authorityService.getMenusByRoles(roleIds);
-			
+			List<Menu> querymenus = authorityService.getMenusByRoles(roleIds);
+			List<Menu> menus = BeanUtil.removeDuplicate(querymenus);
 			if(menus != null && menus.size() > 0) {
 				List<MenuVo> menuVos = new ArrayList<MenuVo>();
 				for(Menu menu : menus){

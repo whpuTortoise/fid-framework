@@ -10,9 +10,14 @@ import java.util.List;
 @Mapper
 public interface UserDepartmentMapper extends BaseMapper<UserDepartmentEntity> {
     /**
-     * 根据用户ID删除所属部门
+     * 根据用户ID删除所属机构
      */
     int deleteByUserId(Long userId);
+
+    /**
+     * 根据机构ID删除所属机构
+     */
+    int deleteByDepartmentId(Long departmentId);
 
     /**
      * 批量用户IdList批量删除
