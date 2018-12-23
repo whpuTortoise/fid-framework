@@ -41,4 +41,17 @@ public class UserRoleService extends BaseService<UserRoleEntity, UserRoleMapper>
 
 	}
 
+	/**
+	 * 根据角色IdList批量删除用户角色
+	 */
+	public int batchDeleteByRoleIdList(List roleIdList){
+
+		if (roleIdList != null && roleIdList.size() > 0) {
+			return mapper.batchDeleteByRoleIdList(roleIdList);
+		} else {
+			return 0;
+		}
+
+	}
+
 }

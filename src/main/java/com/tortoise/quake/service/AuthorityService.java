@@ -33,6 +33,19 @@ public class AuthorityService extends BaseService<Authority, AuthorityMapper> {
 		return mapper.deleteByMenuId(menuId);
 	}
 
+	/**
+	 * 根据角色IdList批量删除角色菜单
+	 */
+	public int batchDeleteByRoleIdList(List roleIdList){
+
+		if (roleIdList != null && roleIdList.size() > 0) {
+			return mapper.batchDeleteByRoleIdList(roleIdList);
+		} else {
+			return 0;
+		}
+
+	}
+
 
 	/**
 	 * 根据角色ID获取菜单权限列表

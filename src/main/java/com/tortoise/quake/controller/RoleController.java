@@ -1,5 +1,6 @@
 package com.tortoise.quake.controller;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -7,6 +8,8 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.tortoise.quake.service.AuthorityService;
+import com.tortoise.quake.service.UserRoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,6 +31,10 @@ import com.tortoise.quake.vo.page.RolePageReqVo;
 public class RoleController {
 	@Autowired
 	private RoleService mRoleService;
+	@Autowired
+	private UserRoleService mUserRoleService;
+	@Autowired
+	private AuthorityService mAuthorityService;
 	
 	/**
 	 * 角色管理页面跳转
@@ -117,6 +124,8 @@ public class RoleController {
 	public ApiResult deleteRoles(HttpServletRequest request, HttpServletResponse response, String ids) {
 		try {
 			mRoleService.batchDelete(ids.split(","), String.class);
+			mUserRoleService.batchDeleteByRoleIdList(Arrays.asList(ids.split(",")));
+			mAuthorityService.batchDeleteByRoleIdList(Arrays.asList(ids.split(",")));
 		} catch (Exception e) {
 			e.printStackTrace();
 			return new ApiResult(ApiResult.FAILURE, "删除失败！", null);

@@ -168,5 +168,13 @@
 			#{item}
 		</foreach>
 	</select>
+
+	<!-- 根据角色ID列表批量删除用户角色  -->
+	<delete id="batchDeleteByRoleIdList" parameterType="java.util.List">
+		delete from sys_authority where role_id in
+		<foreach collection="list" index="index" item="item" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+	</delete>
 	
 </mapper>

@@ -20,4 +20,9 @@ public interface UserRoleMapper extends BaseMapper<UserRoleEntity> {
      * 批量用户IdList批量删除
      */
     int batchDeleteByUserIdList(List userIds);
+
+    /**
+     * 批量角色IdList批量删除
+     */
+    int batchDeleteByRoleIdList(List roleIds);
 }

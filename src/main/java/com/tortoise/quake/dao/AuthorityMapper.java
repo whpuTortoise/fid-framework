@@ -23,6 +23,11 @@ public interface AuthorityMapper extends BaseMapper<Authority> {
 	int deleteByMenuId(Long menuId);
 
 	/**
+	 * 批量角色IdList批量删除
+	 */
+	int batchDeleteByRoleIdList(List roleIds);
+
+	/**
 	 * 根据角色ID获取菜单权限列表
 	 * @param roleIds
 	 * @return
