@@ -1,13 +1,12 @@
 package com.tortoise.quake.controller;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.tortoise.quake.model.Authority;
+import com.tortoise.quake.model.UserRoleEntity;
 import com.tortoise.quake.service.AuthorityService;
 import com.tortoise.quake.service.UserRoleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -90,7 +89,7 @@ public class RoleController {
 	 * 保存角色
 	 * @param request
 	 * @param response
-	 * @param user
+	 * @param role
 	 * @return
 	 */
 	@ResponseBody
@@ -131,6 +130,66 @@ public class RoleController {
 			return new ApiResult(ApiResult.FAILURE, "删除失败！", null);
 		}
 		return new ApiResult(ApiResult.SUCCESS, "删除成功！", null);
+	}
+
+	/**
+	 *
+	 * @Title: deleteRoleByMap
+	 * @Description:  根据参数删除角色
+	 * @param request
+	 * @param response
+	 * @param params
+	 * @return String
+	 * @throws
+	 */
+	@ResponseBody
+	@PostMapping("/deleteUserRoleByEntity")
+	public ApiResult deleteUserRoleByEntity(HttpServletRequest request, HttpServletResponse response, UserRoleEntity entity) {
+		try {
+			mUserRoleService.deleteUserRole(entity);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return new ApiResult(ApiResult.FAILURE, "删除失败！", null);
+		}
+		return new ApiResult(ApiResult.SUCCESS, "删除成功！", null);
+	}
+
+	/**
+	 * 保存用户角色
+	 * @param request
+	 * @param response
+	 * @param
+	 * @return
+	 */
+	@ResponseBody
+	@PostMapping("/saveUserRoleEntities")
+	public ApiResult saveUserRoleEntities(HttpServletRequest request, HttpServletResponse response, String userIds, String roleId) {
+		try {
+			Long roleIdL = 0L;
+			if(!StringUtils.isEmpty(roleId)){
+				roleIdL = Long.parseLong(roleId);
+				UserRoleEntity userRoleEntity = new UserRoleEntity();
+				userRoleEntity.setRoleId(roleIdL);
+				mUserRoleService.deleteUserRole(userRoleEntity);
+			}
+
+			if(!StringUtils.isEmpty(userIds)){
+				String[] users = userIds.split(",");
+				List<UserRoleEntity> list = new ArrayList<UserRoleEntity>();
+				for(int i = 0; i < users.length; i++){
+					UserRoleEntity user = new UserRoleEntity();
+					user.setRoleId(roleIdL);
+					user.setUserId(Long.parseLong(users[i]));
+					list.add(user);
+				}
+				mUserRoleService.batchInsert(list);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			return new ApiResult(ApiResult.FAILURE, "保存失败！", null);
+		}
+		return new ApiResult(ApiResult.SUCCESS, "保存成功！", null);
 	}
 	
 	

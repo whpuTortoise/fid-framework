@@ -163,6 +163,112 @@
 			</div>
 		</div>
 	</div>
+
+	<!-- 分配用户窗口 -->
+	<div class="modal inmodal fade" id="userModal" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span><span class="sr-only">关闭</span>
+					</button>
+					<h4 class="modal-title">分配用户</h4>
+				</div>
+
+				<div class="modal-body">
+					<div class="ibox float-e-margins">
+						<div class="ibox-content">
+							<div class="row">
+								<div class="col-sm-12">
+									<div class="ibox float-e-margins">
+
+										<label class="col-sm-4 control-label">角色名称:</label>
+										<label class="col-sm-8 control-label" id="showRoleName"></label>
+
+										<div class="ibox-content">
+											<table id="usertable" class="table table-hover"></table>
+
+											<div id="usertoolbar" class="btn-group pull-right">
+												<button id="user_btn_add" type="button" class="btn btn-primary" style="margin-right: 2px;">
+													<i class="fa fa-plus"></i> 添加人员
+												</button>
+
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="modal-footer">
+					<button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- 添加人员窗口 -->
+	<div class="modal inmodal fade" id="addUserModal" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span><span class="sr-only">关闭</span>
+					</button>
+					<h4 class="modal-title">选择用户</h4>
+				</div>
+
+				<div class="modal-body">
+					<div class="ibox float-e-margins">
+						<div class="ibox-content">
+							<div class="row">
+								<div class="col-sm-4">
+									<div class="ibox float-e-margins">
+										<div class="ibox-title">
+											<h5>所在部门:</h5>
+										</div>
+										<div class="ibox-content">
+											<div id="departmentTree" class="test"></div>
+											<div class="clearfix"></div>
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-4">
+									<div class="ibox float-e-margins">
+										<div class="ibox-title">
+											<h5>待选人员:</h5>
+										</div>
+										<div class="ibox-content">
+											<table id="readytable" class="table table-hover"></table>
+										</div>
+
+									</div>
+								</div>
+								<div class="col-sm-4">
+									<div class="ibox float-e-margins">
+										<div class="ibox-title">
+											<h5>已选人员:</h5>
+										</div>
+										<div class="ibox-content">
+											<table id="selecttable" class="table table-hover"></table>
+										</div>
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="modal-footer">
+					<button type="button" class="btn btn-white" id="saveUserRoleBtn">确认</button>
+					<button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+				</div>
+			</div>
+		</div>
+	</div>
 	
 
 

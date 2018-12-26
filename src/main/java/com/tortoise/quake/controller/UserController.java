@@ -237,6 +237,61 @@ public class UserController {
 	}
 
 	/**
+	 * 根据角色id获取用户列表
+	 * @param request
+	 * @param response
+	 * @return
+	 */
+	@ResponseBody
+	@PostMapping(value = "/getUserListByRoleId", produces="application/json;charset=UTF-8")
+	public String getUserListByRoleId(HttpServletRequest request, HttpServletResponse response, String roleId){
+		PageRespVo<UserVo> pageRespVo = new PageRespVo<UserVo>();
+
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("roleId", roleId);
+		List<UserRoleEntity> userRoleEntities = mUserRoleService.queryList(params);
+		List<UserDepartmentEntity> userDepartmentEntities = mUserDepartmentService.queryAll();
+		List<Department> departments = mDepartmentService.queryAll();
+
+		List<User> users = mUserService.queryAll();
+
+		int count = mUserRoleService.count(params);
+
+		List<UserVo> showList = new ArrayList<UserVo>();
+		for(int i=0;i<userRoleEntities.size();i++){
+			UserVo userVo = new UserVo();
+			for(int j=0;j<users.size();j++){
+				if(users.get(j).getId()==userRoleEntities.get(i).getUserId()){
+					BeanUtils.copyProperties(users.get(j),userVo);
+					break;
+				}
+			}
+
+			for(int k=0;k<userDepartmentEntities.size();k++){
+
+				if(userDepartmentEntities.get(k).getUserId()==userRoleEntities.get(i).getUserId()){
+					for(int l=0;l<departments.size();l++){
+						if(departments.get(l).getId()==userDepartmentEntities.get(k).getDepartmentId()){
+							userVo.setDepartmentId(departments.get(l).getId().toString());
+							userVo.setDepartmentName(departments.get(l).getDepartmentName());
+							break;
+						}
+					}
+
+					break;
+				}
+			}
+
+			showList.add(userVo);
+		}
+		pageRespVo.setTotal(count);
+		pageRespVo.setRows(showList);
+
+
+		return JsonUtil.toJson(pageRespVo);
+	}
+
+	/**
 	 * 
 	* @Title: deleteUsers 
 	* @Description: 删除用户

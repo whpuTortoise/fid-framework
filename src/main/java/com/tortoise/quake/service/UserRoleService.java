@@ -11,6 +11,7 @@ import com.tortoise.quake.model.UserRoleEntity;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class UserRoleService extends BaseService<UserRoleEntity, UserRoleMapper> {
@@ -26,6 +27,14 @@ public class UserRoleService extends BaseService<UserRoleEntity, UserRoleMapper>
 	public int deleteByUserId(Long userId){
 
 		return mapper.deleteByUserId(userId);
+	}
+
+	/**
+	 * 根据参数删除角色
+	 */
+	public int deleteUserRole(UserRoleEntity entity){
+
+		return mapper.delete(entity);
 	}
 
 	/**

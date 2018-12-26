@@ -10,6 +10,7 @@ $(function(){
 	
 	var treeview = null;
 	var roleId = null;
+	var moveUserId = null;
 	//操作栏事件			
 	window.operateEvents = {
 		'click .editItem' : function(e, value, row, index) {
@@ -39,12 +40,35 @@ $(function(){
 			initTreeview();
 			$('#authorityModal').modal(); //显示编辑弹窗
 			
+		},
+		'click .userItem' : function(e, value, row, index) {
+			roleId = row.id
+			$('#showRoleName').text(row.roleName);
+			initUserTable();
+			//$("#roleShowName").val(row.roleName);
+			$('#userModal').modal(); //显示编辑弹窗
+
+		},
+		'click .moveItem' : function(e, value, row, index) {
+			moveUserId = row.id
+			$.post("/role/deleteUserRoleByEntity",{'roleId':roleId,'userId':moveUserId}, function(data) {
+				if(data && data.state == 1) {
+					//刷新列表
+					initUserTable();
+				}
+			});
+			//initUserTable();
+			//$("#roleShowName").val(row.roleName);
+			//$('#userModal').modal(); //显示编辑弹窗
+
 		}
 	};
+
 	
 	//初始化列表
 	initTable();
-	
+	initDepartmentTreeview();
+	initReadyTable();
 	//初始化表格
 	function initTable() {
 		$("#mytable").bootstrapTable('destroy');
@@ -133,6 +157,91 @@ $(function(){
 		});
 		return params;
 	}
+
+	//初始化分配用户表格
+	function initUserTable() {
+		$("#usertable").bootstrapTable('destroy');
+		$('#usertable').bootstrapTable({
+			method : 'post',
+			contentType : "application/x-www-form-urlencoded",
+			url : "/user/getUserListByRoleId",
+			queryParams : queryUserParams, //请求服务器时所传的参数
+			striped : true, //是否显示行间隔色
+			dataField : "rows", //数据列表字段
+			sidePagination : 'server', //指定服务器端分页
+			pagination : true, //是否分页
+			pageNumber : 1, //初始化加载第一页
+			pageSize : 10, //单页记录数
+			pageList : [ 5, 10, 20, 30 ],//分页步进值
+			showColumns : true,
+			clickToSelect : true,//是否启用点击选中行
+			uniqueId : "id",
+			toolbarAlign : 'left',//工具栏对齐方式
+			buttonsAlign : 'right',//按钮对齐方式
+			toolbar : '#usertoolbar',//指定工作栏
+			columns : [
+				{
+					checkbox : true, //复选框
+					width : 25,
+					align : 'center',
+					valign : 'middle'
+				},
+				{
+					align : 'center',
+					title : '用户名',
+					field : 'username'
+				},
+				{
+					align : 'center',
+					title : '姓名',
+					field : 'realName'
+				},
+				{
+					align : 'center',
+					title : '出生日期',
+					field : 'birthday'
+				},
+				{
+					align : 'center',
+					title : '电话',
+					field : 'tel'
+				},
+				{
+					align : 'center',
+					title : '部门',
+					field : 'departmentName'
+				},
+				{
+					title : '操作',
+					align : 'center',
+					events : operateEvents,
+					formatter : operateUserFormatter //列数据格式化
+				} ],
+			locale : 'zh-CN', //中文支持,
+			responseHandler : function(res) {
+				//在ajax获取到数据，渲染表格之前，修改数据源
+				return res;
+			}
+		});
+	}
+
+	//操作栏格式化，三个参数，value代表该列的值
+	function operateUserFormatter(value, row, index) {
+		return [
+			'<a class="moveItem" href="javascript:void(0)" title="移除">',
+			'移除',
+			'</a>' ].join('');
+	}
+
+	//请求服务数据时所传参数
+	function queryUserParams(params) {
+
+		params["roleId"] = roleId;
+
+		return params;
+	}
+
+
 	
 	//查询按钮事件
 	$('#search_btn').click(function() {
@@ -150,6 +259,7 @@ $(function(){
 			}
 		});
 	}
+
 	
 	//新增按钮事件
 	$('#btn_add').click(function() {
@@ -186,8 +296,188 @@ $(function(){
 			swal("请选择要删除的信息", "", "warning");
 		}
 	});
-	
-	
+
+
+	//新增按钮事件
+	$('#user_btn_add').click(function() {
+		initSelectTable();
+		$('#addUserModal').modal();
+	});
+
+	//初始化机构树
+	function initDepartmentTreeview(){
+
+		$.post("/department/getDepartmentTree", {}, function(data) {
+			if(data && data.state == 1) {
+				var departments = data.datas;
+
+				$("#departmentTree").treeview({
+					color: "#428bca",
+					data: buildDepartmentDomTree(departments),
+					onNodeSelected: function(event, node) {
+						initReadyTable();
+					},
+					onNodeUnselected: function (event, node) {
+						initReadyTable();
+					}
+				});
+			}
+		})
+	}
+
+	//构建树结构
+	function buildDepartmentDomTree(departments) {
+		var data = [];
+
+		function walk(nodes, data) {
+			if (!nodes) { return; }
+			$.each(nodes, function (id, node) {
+				var obj = {
+					text: node.departmentName,
+					nodev: node
+				};
+				if (node.children && node.children.length > 0) {
+					obj.nodes = [];
+					walk(node.children, obj.nodes);
+				}
+				data.push(obj);
+			});
+		}
+
+		walk(departments, data);
+		return data;
+	}
+
+	//初始化分配用户表格
+	function initReadyTable() {
+		$("#readytable").bootstrapTable('destroy');
+		$('#readytable').bootstrapTable({
+			method : 'post',
+			contentType : "application/x-www-form-urlencoded",
+			url : "/user/getShowUserList",
+			queryParams : queryReadyParams, //请求服务器时所传的参数
+			striped : true, //是否显示行间隔色
+			dataField : "rows", //数据列表字段
+			sidePagination : 'server', //指定服务器端分页
+			pagination : true, //是否分页
+			pageNumber : 1, //初始化加载第一页
+			pageSize : 10, //单页记录数
+			pageList : [ 5, 10, 20, 30 ],//分页步进值
+			clickToSelect : true,//是否启用点击选中行
+			uniqueId : "id",
+			buttonsAlign : 'right',//按钮对齐方式
+			onClickRow:function(row){
+				var selectTableItemArr = $("#selecttable").bootstrapTable('getData');
+				var selectUserId = row.id;
+				var isHave = false;
+				for (var x = 0; x < selectTableItemArr.length; x++) {
+					if (selectUserId==selectTableItemArr[x].id){
+						isHave = true;
+						break;
+					}
+				}
+				if(!isHave){
+					$('#selecttable').bootstrapTable('append', row);
+					//$('#selecttable').bootstrapTable('refreshOptions', {sidePagination: "client"});
+				}
+			},
+			columns : [
+
+				{
+					align : 'center',
+					title : '姓名',
+					field : 'realName'
+				}
+				],
+			locale : 'zh-CN', //中文支持,
+			responseHandler : function(res) {
+				//在ajax获取到数据，渲染表格之前，修改数据源
+				return res;
+			}
+		});
+	}
+
+
+	//请求服务数据时所传参数
+	function queryReadyParams(params) {
+
+
+		var node = getSelectNode();
+		if (node!=null) {
+			params["searchDepartmentId"] = node.id;
+		}
+
+		return params;
+	}
+
+
+
+
+	//初始化分配用户表格
+	function initSelectTable() {
+
+		$("#selecttable").bootstrapTable('destroy');
+		$('#selecttable').bootstrapTable({
+			method : 'post',
+			contentType : "application/x-www-form-urlencoded",
+			url : "/user/getUserListByRoleId",
+			queryParams : queryUserParams, //请求服务器时所传的参数
+			striped : true, //是否显示行间隔色
+			dataField : "rows", //数据列表字段
+			sidePagination : 'server', //指定服务器端分页
+			pagination : true, //是否分页
+			pageNumber : 1, //初始化加载第一页
+			pageSize : 10, //单页记录数
+			pageList : [ 5, 10, 20, 30 ],//分页步进值
+			clickToSelect : true,//是否启用点击选中行
+			uniqueId : "id",
+			toolbarAlign : 'left',//工具栏对齐方式
+			buttonsAlign : 'right',//按钮对齐方式
+			onClickRow:function(row){
+				var selectTableItemArr = $("#selecttable").bootstrapTable('getData');
+				$('#selecttable').bootstrapTable('remove',{field:"id", values:[row.id]});
+			},
+			columns : [
+				{
+					align : 'center',
+					field : 'id',
+					visible: false
+				},
+				{
+					align : 'center',
+					title : '姓名',
+					field : 'realName'
+				}
+			],
+			locale : 'zh-CN', //中文支持,
+			responseHandler : function(res) {
+				//在ajax获取到数据，渲染表格之前，修改数据源
+				return res;
+			}
+		});
+	}
+
+
+
+
+	/**
+	 * 获取选中的节点
+	 */
+	function getSelectNode(){
+		var arr = $('#departmentTree').treeview('getSelected');
+		if(arr.length > 0){
+			return arr[0].nodev;
+		}else{
+			return null;
+		}
+	}
+
+
+
+
+
+
+
 	//弹窗关闭监听
 	$("#editModal").on("hide.bs.modal",function(){
 		//清空表单信息
@@ -342,5 +632,32 @@ $(function(){
 				}
 			})
 		});
+
+	//保存按钮事件
+	$('#saveUserRoleBtn').click(function() {
+
+		var userIds = "";
+		var selectUserArr = $("#selecttable").bootstrapTable('getData');
+		for(var i=0; i<selectUserArr.length; i++){
+			if(userIds == ""){
+				userIds = selectUserArr[i].id;
+			}else{
+				userIds += ","+selectUserArr[i].id;
+			}
+		}
+
+
+		$.post("/role/saveUserRoleEntities", {'roleId': roleId, 'userIds': userIds}, function(data) {
+			if(data && data.state == 1) { //后台返回添加成功
+			//	swal("保存成功", "", "success");
+				//关闭弹窗
+				$('#addUserModal').modal('hide');
+
+				//刷新列表
+				initUserTable();
+			}
+		})
+
+	});
 
 });

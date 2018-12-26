@@ -6,6 +6,7 @@ import com.tortoise.framework.dao.BaseMapper;
 import com.tortoise.quake.model.UserRoleEntity;
 
 import java.util.List;
+import java.util.Map;
 
 
 @Mapper
@@ -25,4 +26,9 @@ public interface UserRoleMapper extends BaseMapper<UserRoleEntity> {
      * 批量角色IdList批量删除
      */
     int batchDeleteByRoleIdList(List roleIds);
+
+    /**
+     * 根据map删除
+     */
+    int delete(UserRoleEntity entity);
 }

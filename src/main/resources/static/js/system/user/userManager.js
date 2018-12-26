@@ -43,9 +43,7 @@ $(function(){
    
 	 //初始化机构树
     function initTreeview(){
-//    	$('#event_output').html('无');
-//    	$('#event_code').html('无');
-//    	$('#event_type').html('无');
+
     	$.post("/department/getDepartmentTree", {}, function(data) {
     		if(data && data.state == 1) {
     			var departments = data.datas;
@@ -312,7 +310,11 @@ $(function(){
 		if(snode != null){
 			$("#departmentId").val(snode.id);
 		}
+		var roles = $("input[name='roleIds']");
 
+		roles.each(function(){
+			$(this).prop('checked',false);
+		});
 		$('#editModal').modal();
 	});
 	
